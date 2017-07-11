@@ -15,7 +15,7 @@ enum NetworkError {
 
 class NetworkManager {
 
-    let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/backend"
+    let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/back"
 //    let dateFormatter: DateFormatter = {
 //        $0.dateFormat = "MMMM dd, yyyy"
 //        return $0
@@ -26,14 +26,15 @@ class NetworkManager {
         let parameters: Parameters = [
             "username": username,
             "date": dateTime,
-            "NumCig": numCigs,
-            "Activity": activityList,
-            "Location": "quit genius",
+            "numcig": numCigs,
+            "activity": activityList,
+            "location": "quit genius",
             "people": "coworker",
             "mood": "happy"
         ]
         
-        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+            response in
             // check data
             completion(false, NetworkError.BadConnection)
         }
