@@ -64,7 +64,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-FL-DrD">
                                                     <rect key="frame" x="8" y="29" width="359" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Add activity"/>
+                                                    <state key="normal" title="Add activity">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="addActivity:" destination="u7v-C8-KXm" eventType="touchUpInside" id="w0t-wU-8rg"/>
                                                         <segue destination="NQp-tl-VWh" kind="show" id="z5a-x5-ubR"/>
