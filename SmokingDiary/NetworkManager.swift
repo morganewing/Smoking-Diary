@@ -26,8 +26,8 @@ class NetworkManager {
         let parameters: Parameters = [
             "username": username,
             "date": dateTime,
-            "NumCig": num,
-            "Activity": activities.joined(separator: ", "),
+            "NumCig": numCigs,
+            "Activity": activityList,
             "Location": "quit genius",
             "people": "coworker",
             "mood": "happy"

@@ -63,7 +63,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             
 
         networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList) { (success, error) in
-            //
+            //vnvv
         }
     }
     
