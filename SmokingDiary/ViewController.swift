@@ -12,7 +12,7 @@ import UIKit
 var currActivity = ["Add activity"]
 var numCigs = 0
 var dateTime = ""
-var activityList = ""
+var activityList = [String]()
 
 class ViewController: UITableViewController, UITextFieldDelegate {
 
@@ -56,7 +56,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func saveButton(_ sender: Any) {
         numCigs = Int(cigText.text!)!
         dateTime = dateLabel.text!
-        activityList = currActivity.joined(separator:", ")
+        activityList = currActivity
         
         let networkManager = NetworkManager()
         
