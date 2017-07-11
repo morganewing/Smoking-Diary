@@ -11,6 +11,8 @@ import UIKit
 // Global variables
 var currActivity = ["Add activity"]
 var numCigs = ""
+var dateTime = ""
+var activityList = ""
 
 class ViewController: UITableViewController, UITextFieldDelegate {
 
@@ -53,6 +55,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     // Save data when "SAVE" clicked
     @IBAction func saveButton(_ sender: Any) {
         numCigs = cigText.text!
+        dateTime = dateLabel.text!
+        activityList = currActivity.joined(separator:", ")
     }
     
     override func viewDidLoad() {
@@ -63,11 +67,9 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
         // Set default date
         let dateFormatter : DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "EEEE, MMM d h:mm a"
         let date = Date()
         let dateString = dateFormatter.string(from: date)
-                //let interval = date.timeIntervalSince1970
-        //        dateLabel.text = dateString
         dateLabel.text = dateString
         
         // Set addActivity to selected activity
