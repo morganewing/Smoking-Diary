@@ -1,0 +1,6 @@
+framework module Pods_SmokingDiary {
+  umbrella header "Pods-SmokingDiary-umbrella.h"
+
+  export *
+  module * { export * }
+}
