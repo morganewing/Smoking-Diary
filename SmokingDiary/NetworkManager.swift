@@ -15,7 +15,7 @@ enum NetworkError {
 
 class NetworkManager {
 
-    let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/backend"
+    let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/back"
 //    let dateFormatter: DateFormatter = {
 //        $0.dateFormat = "MMMM dd, yyyy"
 //        return $0
