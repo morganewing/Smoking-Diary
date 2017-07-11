@@ -16,19 +16,19 @@ enum NetworkError {
 class NetworkManager {
 
     let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/back"
-//    let dateFormatter: DateFormatter = {
-//        $0.dateFormat = "MMMM dd, yyyy"
-//        return $0
-//    }(DateFormatter())
+    let dateFormatter: DateFormatter = {
+        $0.dateFormat = "MMMM dd, yyyy"
+        return $0
+    }(DateFormatter())
     let username = "lucas"
     
     func saveEntry(date: Date, numberOfCigarettes: Int, activities: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
-            "date": dateTime,
-            "numcig": numCigs,
-            "activity": activityList,
-            "location": "quit genius",
+            "date": dateFormatter.string(from: date),
+            "NumCig": numberOfCigarettes,
+            "Activity": activities.joined(separator: ", "),
+            "Location": "quit genius",
             "people": "coworker",
             "mood": "happy"
         ]
