@@ -92,11 +92,10 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
-    // Save num cigs erntered
+    // Save num cigs entered
     func textFieldDidEndEditing(_ textField: UITextField) {
         cigText.text = textField.text
         numCigs = cigText.text!
-        print(numCigs)
     }
     
     // Detect date picker value change
