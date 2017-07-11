@@ -26,14 +26,15 @@ class NetworkManager {
         let parameters: Parameters = [
             "username": username,
             "date": dateTime,
-            "NumCig": numCigs,
-            "Activity": activityList,
-            "Location": "quit genius",
+            "numcig": numCigs,
+            "activity": activityList,
+            "location": "quit genius",
             "people": "coworker",
             "mood": "happy"
         ]
         
-        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+            response in
             // check data
             completion(false, NetworkError.BadConnection)
         }
