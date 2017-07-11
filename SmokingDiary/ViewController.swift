@@ -10,10 +10,12 @@ import UIKit
 
 // Global variables
 var currActivity = ["Add activity"]
+var numCigs = ""
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, UITextFieldDelegate {
 
 //    @IBOutlet var dateTime: UILabel!
+    @IBOutlet var cigText: UITextField!
     @IBOutlet var dateLabel: UITextField!
     let datePicker = UIDatePicker()
     @IBOutlet var addActivity: UIButton!
@@ -55,6 +57,8 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        cigText.delegate = self
+        
         // Set addActivity to selected activity
         addActivity.setTitle("Add activity", for: .normal)
         
@@ -79,6 +83,20 @@ class ViewController: UITableViewController {
         // Date picker
         createDatePicker()
         
+    }
+    
+    // Text fields return on "return"
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Save num cigs erntered
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        cigText.text = textField.text
+        numCigs = cigText.text!
+        print(numCigs)
     }
     
     // Detect date picker value change
