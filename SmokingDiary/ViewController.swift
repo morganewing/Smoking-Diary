@@ -50,7 +50,9 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    // Save data when "SAVE" clicked
     @IBAction func saveButton(_ sender: Any) {
+        numCigs = cigText.text!
     }
     
     override func viewDidLoad() {
@@ -59,16 +61,17 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
         cigText.delegate = self
         
+        // Set default date
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+                //let interval = date.timeIntervalSince1970
+        //        dateLabel.text = dateString
+        dateLabel.text = dateString
+        
         // Set addActivity to selected activity
         addActivity.setTitle("Add activity", for: .normal)
-        
-        // Set default date
-//        let dateFormatter : DateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//        let date = Date()
-//        let dateString = dateFormatter.string(from: date)
-//        //let interval = date.timeIntervalSince1970
-//        dateLabel.text = dateString
         
         // Set new date when value changed
         datePicker.datePickerMode = UIDatePickerMode.date
@@ -95,7 +98,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     // Save num cigs entered
     func textFieldDidEndEditing(_ textField: UITextField) {
         cigText.text = textField.text
-        numCigs = cigText.text!
     }
     
     // Detect date picker value change
