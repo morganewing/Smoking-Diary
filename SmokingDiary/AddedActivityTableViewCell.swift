@@ -15,10 +15,8 @@ class AddedActivityTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     // Hide keyboard when "Done" preseed and save new activity to array
     @IBAction func resignKeyboard(_ sender: AnyObject) {
-        if customAct.contains("New Activity") {
-            customAct.remove(at: 0)
-        }
         customAct.append(newActText.text!)
+        new += 1
         sender.resignFirstResponder()
     }
     

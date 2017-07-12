@@ -10,6 +10,8 @@ import UIKit
 import os.log
 
 var customAct = [String]()
+// Number of custom activities
+var new = 0
 
 class ActivityViewController: UITableViewController, UITextFieldDelegate {
     
@@ -28,18 +30,28 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var newActivityText: UITextField!
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (activities.count + customAct.count) + 1
+        return (activities.count + new) + 1
     }
     
     // Add custom activity when "Add" pressed
     @IBAction func addButton(_ sender: Any) {
-        
         // New activity array
-        customAct.append("New Activity")
+        new = 1
         
         self.tableView.beginUpdates()
-        let newItemIndexPath = IndexPath(row: (activities.count + customAct.count)-1, section: 0)
+        let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
         self.tableView.insertRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
+        self.tableView.endUpdates()
+    }
+    
+    // Delete custom activity row when "Del" pressed
+    @IBAction func deleteButton(_ sender: Any) {
+        print(new)
+        print("whYYYYY")
+        new -= 1
+        self.tableView.beginUpdates()
+        let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
+        self.tableView.deleteRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
         self.tableView.endUpdates()
     }
     
@@ -51,8 +63,9 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             return cell
         } else {
             // Added new activity row
-            if (indexPath.row < (activities.count + customAct.count)) {
+            if (indexPath.row < (activities.count + new)) {
                 let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
+                print("newnew")
                 return added
             // Add activity option row
             } else {
@@ -64,7 +77,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     
     // Add checkmarks and set currActivity to selected activity
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row < (activities.count + customAct.count)) {
+        if (indexPath.row < (activities.count + new)) {
             let currCell = tableView.cellForRow(at: indexPath)
             if currCell?.accessoryType == UITableViewCellAccessoryType.checkmark {
                 currCell?.accessoryType = UITableViewCellAccessoryType.none
@@ -82,7 +95,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
                 if (indexPath.row < activities.count) {
                     updateActivity.append((currCell?.textLabel!.text)!)
                 } else {
-                     if (indexPath.row < (activities.count + customAct.count)) {
+                     if (indexPath.row < (activities.count + new)) {
                         updateActivity.append(customAct[indexPath.row-activities.count])
                     }
                 }

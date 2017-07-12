@@ -180,6 +180,7 @@
                                             <state key="normal" title="Del"/>
                                             <connections>
                                                 <action selector="addButton:" destination="NQp-tl-VWh" eventType="touchUpInside" id="Uhu-Oj-Jru"/>
+                                                <action selector="deleteButton:" destination="NQp-tl-VWh" eventType="touchUpInside" id="1kL-Wm-2iN"/>
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Activity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04f-SY-sEw">
