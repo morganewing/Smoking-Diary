@@ -37,7 +37,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func addButton(_ sender: Any) {
         // New activity array
         new = 1
-        
         self.tableView.beginUpdates()
         let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
         self.tableView.insertRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
@@ -46,12 +45,10 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     
     // Delete custom activity row when "Del" pressed
     @IBAction func deleteButton(_ sender: Any) {
-        print(new)
-        print("whYYYYY")
-        new -= 1
         self.tableView.beginUpdates()
         let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
         self.tableView.deleteRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
+        new -= 1
         self.tableView.endUpdates()
     }
     
@@ -65,7 +62,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             // Added new activity row
             if (indexPath.row < (activities.count + new)) {
                 let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
-                print("newnew")
                 return added
             // Add activity option row
             } else {

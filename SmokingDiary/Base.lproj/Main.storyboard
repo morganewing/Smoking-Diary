@@ -179,7 +179,6 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Del"/>
                                             <connections>
-                                                <action selector="addButton:" destination="NQp-tl-VWh" eventType="touchUpInside" id="Uhu-Oj-Jru"/>
                                                 <action selector="deleteButton:" destination="NQp-tl-VWh" eventType="touchUpInside" id="1kL-Wm-2iN"/>
                                             </connections>
                                         </button>
