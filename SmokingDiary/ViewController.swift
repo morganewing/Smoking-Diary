@@ -58,18 +58,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     // Save data when "SAVE" clicked
     @IBAction func saveButton(_ sender: Any) {
-        if cigText.text == nil {
-            numCigs = 0
-        }
-        numCigs = Int(cigText.text!)!
-        dateTime = dateLabel.text!
-        activityList = currActivity
-        
-        let networkManager = NetworkManager()
-        
-        
-        networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList) { (success, error) in
-            //vnvv
         // Check that number of cigs and activities have been selected
         if (numCigs != -1 && currActivity != ["Add activity"]) {
             numCigs = Int(self.cigText.text!)!
@@ -82,7 +70,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                 //
             }
         }
-    }
     }
     
     override func viewDidLoad() {
