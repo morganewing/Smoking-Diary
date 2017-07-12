@@ -22,13 +22,13 @@ class NetworkManager {
     }(DateFormatter())
     let username = "lucas"
     
-    func saveEntry(dateTime: String, numCigs: Int, activityList: String, completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
+    func saveEntry(dateTime: DateFormatter, numCigs: Int, activityList: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
             "date": dateTime,
-            "NumCig": numCigs,
-            "Activity": activityList,
-            "Location": "quit genius",
+            "numcig": numCigs,
+            "activity": activityList,
+            "location": "quit genius",
             "people": "coworker",
             "mood": "happy"
         ]
@@ -37,6 +37,7 @@ class NetworkManager {
             response in
             // check data
             completion(false, NetworkError.BadConnection)
+            print(response)
         }
     }
 
