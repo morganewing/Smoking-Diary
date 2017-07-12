@@ -44,13 +44,10 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     // When datepicker done button pressed
     func donePressed() {
         // Format date and time
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .long
-//        dateFormatter.timeStyle = .short
-        let dateFormatter: DateFormatter = {
-            $0.dateFormat = "MMMM dd, yyyy"
-            return $0
-        }(DateFormatter())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+     
         
         dateLabel.text = dateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
@@ -58,18 +55,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     // Save data when "SAVE" clicked
     @IBAction func saveButton(_ sender: Any) {
-        if cigText.text == nil {
-            numCigs = 0
-        }
-        numCigs = Int(cigText.text!)!
-        dateTime = dateLabel.text!
-        activityList = currActivity
-        
-        let networkManager = NetworkManager()
-        
-        
-        networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList) { (success, error) in
-            //vnvv
         // Check that number of cigs and activities have been selected
         if (numCigs != -1 && currActivity != ["Add activity"]) {
             numCigs = Int(self.cigText.text!)!
@@ -83,7 +68,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +77,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
         // Set default date
         let dateFormatter : DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, yyyy" 
+        dateFormatter.dateFormat = "EEEE, MMM d, h:mm a"
         let date = Date()
         let dateString = dateFormatter.string(from: date)
         dateLabel.text = dateString
