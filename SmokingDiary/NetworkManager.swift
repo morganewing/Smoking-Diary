@@ -16,13 +16,13 @@ enum NetworkError {
 class NetworkManager {
 
     let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/back"
-    let dateFormatter: DateFormatter = {
-        $0.dateFormat = "MMMM dd, yyyy"
-        return $0
-    }(DateFormatter())
-    let username = "lucas"
+//    let dateFormatter: DateFormatter = {
+//        $0.dateFormat = "MMMM dd, yyyy"
+//        return $0
+//    }(DateFormatter())
+    let username = "agjnfkavlkfajb"
     
-    func saveEntry(dateTime: DateFormatter, numCigs: Int, activityList: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
+    func saveEntry(dateTime: String, numCigs: Int, activityList: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
             "date": dateTime,
@@ -32,7 +32,7 @@ class NetworkManager {
             "people": "coworker",
             "mood": "happy"
         ]
-        
+    
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
             // check data
