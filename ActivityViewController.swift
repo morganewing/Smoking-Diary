@@ -13,7 +13,7 @@ class ActivityViewController: UITableViewController {
     
     var updateActivity = [String]()
     
-    // Update activites when done button pressed
+    // Update activities when done button pressed
     @IBAction func doneButton(_ sender: Any) {
         if (updateActivity.count > 0) {
             currActivity = updateActivity
@@ -22,19 +22,31 @@ class ActivityViewController: UITableViewController {
     
     // Default list of activities
     var activities = ["Eating", "Drinking", "Coffee", "Driving", "Social"]
+    // Array of custom activies
+    var customAct = [UITextField]()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activities.count + 1
+        return (activities.count + customAct.count) + 1
     }
     
     // Add custom activity when "Add" pressed
     @IBAction func addButton(_ sender: Any) {
-        print("hey")
-        activities.append("New Activity")
+        
+        // Instantiate text field
+        let txtField: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00));
+        self.tableView.addSubview(txtField)
+        
+        customAct.append(txtField)
+        
+        print("appended")
+        
+//        activities.append("new")
+        
         self.tableView.beginUpdates()
-        let newItemIndexPath = IndexPath(row: activities.count-1, section: 0)
+        let newItemIndexPath = IndexPath(row: (activities.count + customAct.count)-1, section: 0)
         self.tableView.insertRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
         self.tableView.endUpdates()
+        print("updated")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,8 +55,14 @@ class ActivityViewController: UITableViewController {
             cell.textLabel?.text = activities[indexPath.row]
             return cell
         } else {
-            let custom = tableView.dequeueReusableCell(withIdentifier: "custom", for: indexPath)
-            return custom
+            if (indexPath.row < (activities.count + customAct.count)) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+                cell.textLabel?.text = customAct[indexPath.row - activities.count].text
+                return cell
+            } else {
+                let custom = tableView.dequeueReusableCell(withIdentifier: "custom", for: indexPath)
+                return custom
+            }
         }
     }
     
