@@ -9,7 +9,9 @@
 import UIKit
 import os.log
 
-class ActivityViewController: UITableViewController {
+var customAct = [String]()
+
+class ActivityViewController: UITableViewController, UITextFieldDelegate {
     
     var updateActivity = [String]()
     
@@ -23,7 +25,7 @@ class ActivityViewController: UITableViewController {
     // Default list of activities
     var activities = ["Eating", "Drinking", "Coffee", "Driving", "Social"]
     // Array of custom activies
-    var customAct = [String]()
+    @IBOutlet var newActivityText: UITextField!
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (activities.count + customAct.count) + 1
@@ -62,24 +64,28 @@ class ActivityViewController: UITableViewController {
     
     // Add checkmarks and set currActivity to selected activity
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row <= 4) {
-//            if currActivity.contains("Add activity") {
-//                currActivity.remove(at: 0)
-//            }
-//            if currActivity.count == 1 {
-//                currActivity.append("Add activity")
-//            }
+        if (indexPath.row < (activities.count + customAct.count)) {
             let currCell = tableView.cellForRow(at: indexPath)
             if currCell?.accessoryType == UITableViewCellAccessoryType.checkmark {
                 currCell?.accessoryType = UITableViewCellAccessoryType.none
                 // Remove activity from list
-                if let itemToRemoveIndex = updateActivity.index(of: (currCell?.textLabel!.text)!) {
-                    updateActivity.remove(at: itemToRemoveIndex)
+                if (indexPath.row < activities.count) {
+                    if let itemToRemoveIndex = updateActivity.index(of: (currCell?.textLabel!.text)!) {
+                        updateActivity.remove(at: itemToRemoveIndex)
+                    }
+                } else {
+                    //remove custom activity!!!!
                 }
             } else {
                 currCell?.accessoryType = UITableViewCellAccessoryType.checkmark
                 // Add activity to list
-                updateActivity.append((currCell?.textLabel!.text)!)
+                if (indexPath.row < activities.count) {
+                    updateActivity.append((currCell?.textLabel!.text)!)
+                } else {
+                     if (indexPath.row < (activities.count + customAct.count)) {
+                        updateActivity.append(customAct[indexPath.row-activities.count])
+                    }
+                }
             }
         }
     }
