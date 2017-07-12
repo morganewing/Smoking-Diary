@@ -23,7 +23,7 @@ class ActivityViewController: UITableViewController {
     // Default list of activities
     var activities = ["Eating", "Drinking", "Coffee", "Driving", "Social"]
     // Array of custom activies
-    var customAct = [UITextField]()
+    var customAct = [String]()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (activities.count + customAct.count) + 1
@@ -32,33 +32,27 @@ class ActivityViewController: UITableViewController {
     // Add custom activity when "Add" pressed
     @IBAction func addButton(_ sender: Any) {
         
-        // Instantiate text field
-        let txtField: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00));
-        self.tableView.addSubview(txtField)
-        
-        customAct.append(txtField)
-        
-        print("appended")
-        
-//        activities.append("new")
+        // New activity array
+        customAct.append("New Activity")
         
         self.tableView.beginUpdates()
         let newItemIndexPath = IndexPath(row: (activities.count + customAct.count)-1, section: 0)
         self.tableView.insertRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
         self.tableView.endUpdates()
-        print("updated")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Default activity row
         if (indexPath.row < activities.count) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = activities[indexPath.row]
             return cell
         } else {
+            // Added new activity row
             if (indexPath.row < (activities.count + customAct.count)) {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-                cell.textLabel?.text = customAct[indexPath.row - activities.count].text
-                return cell
+                let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
+                return added
+            // Add activity option row
             } else {
                 let custom = tableView.dequeueReusableCell(withIdentifier: "custom", for: indexPath)
                 return custom
