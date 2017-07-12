@@ -10,7 +10,7 @@ import UIKit
 
 // Global variables
 var currActivity = ["Add activity"]
-var numCigs = 0
+var numCigs = -1
 var dateTime = ""
 var activityList = [String]()
 
@@ -54,14 +54,17 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     // Save data when "SAVE" clicked
     @IBAction func saveButton(_ sender: Any) {
-        numCigs = Int(cigText.text!)!
-        dateTime = dateLabel.text!
-        activityList = currActivity
-        
-        let networkManager = NetworkManager()
-        
-        networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList) { (success, error) in
-            //
+        // Check that number of cigs and activities have been selected
+        if (numCigs != -1 && currActivity != ["Add activity"]) {
+            numCigs = Int(cigText.text!)!
+            dateTime = dateLabel.text!
+            activityList = currActivity
+            
+            let networkManager = NetworkManager()
+            
+            networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList) { (success, error) in
+                //
+            }
         }
     }
     

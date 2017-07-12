@@ -178,6 +178,9 @@
                                             <rect key="frame" x="8" y="5" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Add"/>
+                                            <connections>
+                                                <action selector="addButton:" destination="NQp-tl-VWh" eventType="touchUpInside" id="xaM-fv-haq"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-vI-WXO">
                                             <rect key="frame" x="46" y="11" width="321" height="21"/>

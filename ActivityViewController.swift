@@ -21,14 +21,24 @@ class ActivityViewController: UITableViewController {
     }
     
     // Default list of activities
-    let activities = ["Eating", "Drinking", "Coffee", "Driving", "Social"]
+    var activities = ["Eating", "Drinking", "Coffee", "Driving", "Social"]
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activities.count + 1
     }
     
+    // Add custom activity when "Add" pressed
+    @IBAction func addButton(_ sender: Any) {
+        print("hey")
+        activities.append("New Activity")
+        self.tableView.beginUpdates()
+        let newItemIndexPath = IndexPath(row: activities.count-1, section: 0)
+        self.tableView.insertRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
+        self.tableView.endUpdates()
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row <= 4) {
+        if (indexPath.row < activities.count) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = activities[indexPath.row]
             return cell
