@@ -10,7 +10,7 @@ import UIKit
 
 // Global variables
 var currActivity = ["Add activity"]
-var numCigs = 0
+var numCigs = -1
 var dateTime = ""
 var activityList = [String]()
 
@@ -66,13 +66,23 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         activityList = currActivity
         
         let networkManager = NetworkManager()
-//        numCigs = 1
-//        activityList = ["testing"]
         
         
         networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList) { (success, error) in
             //vnvv
+        // Check that number of cigs and activities have been selected
+        if (numCigs != -1 && currActivity != ["Add activity"]) {
+            numCigs = Int(self.cigText.text!)!
+            dateTime = self.dateLabel.text!
+            activityList = currActivity
+            
+            let networkManager = NetworkManager()
+            
+            networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList) { (success, error) in
+                //
+            }
         }
+    }
     }
     
     override func viewDidLoad() {
@@ -171,4 +181,3 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     }
     
 }
-

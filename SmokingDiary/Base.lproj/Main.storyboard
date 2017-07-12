@@ -167,8 +167,34 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="custom" id="mly-Fd-8nj" userLabel="CustomActivityTableViewCell" customClass="CustomActivityTableViewCell" customModule="SmokingDiary" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="added" id="6yl-Nq-39A" userLabel="AddedActivityTableViewCell" customClass="CustomActivityTableViewCell" customModule="SmokingDiary" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6yl-Nq-39A" id="xH6-L0-W9A">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhp-8V-Ge4">
+                                            <rect key="frame" x="8" y="5" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Del"/>
+                                            <connections>
+                                                <action selector="addButton:" destination="NQp-tl-VWh" eventType="touchUpInside" id="Uhu-Oj-Jru"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New Activity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04f-SY-sEw">
+                                            <rect key="frame" x="46" y="5" width="321" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="textColor" red="0.38617227979274615" green="0.38617227979274615" blue="0.38617227979274615" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="CustomActivityTableViewCell"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="custom" id="mly-Fd-8nj" userLabel="CustomActivityTableViewCell" customClass="CustomActivityTableViewCell" customModule="SmokingDiary" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mly-Fd-8nj" id="h1t-V5-TUr">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -178,6 +204,9 @@
                                             <rect key="frame" x="8" y="5" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Add"/>
+                                            <connections>
+                                                <action selector="addButton:" destination="NQp-tl-VWh" eventType="touchUpInside" id="xaM-fv-haq"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-vI-WXO">
                                             <rect key="frame" x="46" y="11" width="321" height="21"/>
