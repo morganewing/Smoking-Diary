@@ -77,16 +77,21 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
         // Set default date
         let dateFormatter : DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, h:mm a"
+        dateFormatter.dateFormat = "EEEE, MMM d"
         let date = Date()
         let dateString = dateFormatter.string(from: date)
-        dateLabel.text = dateString
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let timeString = "\(hour):\(minutes)"
+        dateLabel.text = dateString + " at " + timeString
+        
         
         // Set addActivity to selected activity
         addActivity.setTitle("Add activity", for: .normal)
         
         // Set new date when value changed
-        datePicker.datePickerMode = UIDatePickerMode.date
+        datePicker.datePickerMode = UIDatePickerMode.dateAndTime
         dateLabel.inputView = datePicker
         datePicker.addTarget(self, action: #selector(ViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     

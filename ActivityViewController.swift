@@ -73,10 +73,12 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     
     // Add checkmarks and set currActivity to selected activity
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Toggle selection circles
         if (indexPath.row < (activities.count + new)) {
             let currCell = tableView.cellForRow(at: indexPath)
-            if currCell?.accessoryType == UITableViewCellAccessoryType.checkmark {
-                currCell?.accessoryType = UITableViewCellAccessoryType.none
+            if (currCell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
+                print("hello")
+                currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 // Remove activity from list
                 if (indexPath.row < activities.count) {
                     if let itemToRemoveIndex = updateActivity.index(of: (currCell?.textLabel!.text)!) {
@@ -87,6 +89,8 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
                 }
             } else {
                 currCell?.accessoryType = UITableViewCellAccessoryType.checkmark
+                currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
+                print("hey")
                 // Add activity to list
                 if (indexPath.row < activities.count) {
                     updateActivity.append((currCell?.textLabel!.text)!)
@@ -102,7 +106,15 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let actCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+        print(actCell)
         // Do any additional setup after loading the view.
+//        for i in 0...activities.count {
+//            print("u there")
+//            let actCell = tableView.cellForRow(at: IndexPath(row: i, section: 0))
+//            print(actCell)
+//            actCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
+//        }
     }
 
     override func didReceiveMemoryWarning() {
