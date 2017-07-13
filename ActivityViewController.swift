@@ -44,7 +44,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     }
     
     // Delete custom activity row when "Del" pressed
-    @IBAction func deleteButton(_ sender: Any) {
+    @IBAction func deleteButton(_ sender: UIButton) {
         self.tableView.beginUpdates()
         let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
         self.tableView.deleteRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)

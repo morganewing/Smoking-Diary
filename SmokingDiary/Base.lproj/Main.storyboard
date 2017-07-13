@@ -12,7 +12,7 @@
         <!--Smoking Diary Entry-->
         <scene sceneID="pXs-Jf-fVs">
             <objects>
-                <tableViewController id="u7v-C8-KXm" customClass="ViewController" customModule="SmokingDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="u7v-C8-KXm" customClass="ViewController" customModule="SmokingDiary" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="9uZ-fO-aE9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nnx-ae-m74">
-                                                    <rect key="frame" x="8" y="29" width="359" height="30"/>
+                                                    <rect key="frame" x="60" y="29" width="307" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

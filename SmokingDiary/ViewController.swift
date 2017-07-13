@@ -55,11 +55,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     // Save data when "SAVE" clicked
     @IBAction func saveButton(_ sender: Any) {
-        print(numCigs)
-        print(currActivity)
         // Check that number of cigs and activities have been selected
         if (numCigs != -1 && currActivity != ["Add activity"]) {
-            print("hellooo")
             numCigs = Int(self.cigText.text!)!
             dateTime = self.dateLabel.text!
             activityList = currActivity
