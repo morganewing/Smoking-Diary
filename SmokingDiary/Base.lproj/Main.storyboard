@@ -34,6 +34,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Images" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-Hx-cfj">
+                                                    <rect key="frame" x="-130" y="-61" width="240" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -264,4 +268,7 @@
             <point key="canvasLocation" x="-751.20000000000005" y="36.431784107946029"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Images" width="72" height="63"/>
+    </resources>
 </document>
