@@ -53,6 +53,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
      
         
         dateLabel.text = dateFormatter.string(from: datePicker.date)
+        dateLabel.textColor = UIColor.black
         self.view.endEditing(true)
         // Change icon to enabled
         dateIcon.image = #imageLiteral(resourceName: "Time Enabled")
@@ -107,7 +108,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
         // Date picker
         createDatePicker()
-        
     }
     
     // Text fields return on "return"
@@ -140,6 +140,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             addActivity.setTitle(currActivity.joined(separator:", "), for: .normal)
             // Change icon to enabled
             activityIcon.image = #imageLiteral(resourceName: "Activity Enabled")
+            // Change text color to black
+            addActivity.setTitleColor(UIColor.black, for: .normal)
         }
     }
     

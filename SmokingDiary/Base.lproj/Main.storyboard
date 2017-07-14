@@ -30,12 +30,12 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nnx-ae-m74">
                                                     <rect key="frame" x="80" y="29" width="290" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Time Disabled" translatesAutoresizingMaskIntoConstraints="NO" id="5mJ-YQ-NbU">
-                                                    <rect key="frame" x="33" y="34" width="20" height="20"/>
+                                                    <rect key="frame" x="8" y="13" width="72" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -74,7 +74,7 @@
                                                     <rect key="frame" x="80" y="29" width="290" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Add activity">
-                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="addActivity:" destination="u7v-C8-KXm" eventType="touchUpInside" id="w0t-wU-8rg"/>
@@ -98,7 +98,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSB-CK-swc">
                                                     <rect key="frame" x="80" y="29" width="290" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
@@ -278,7 +278,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L2C-f4-Tbg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UJx-cf-ZIi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UJx-cf-ZIi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -300,6 +300,6 @@
         <image name="Location Disabled" width="72" height="63"/>
         <image name="Mood Disabled" width="72" height="63"/>
         <image name="People Disabled" width="72" height="63"/>
-        <image name="Time Disabled" width="19" height="19"/>
+        <image name="Time Disabled" width="72" height="63"/>
     </resources>
 </document>
