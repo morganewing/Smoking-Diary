@@ -24,6 +24,9 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func addActivity(_ sender: Any) {
         
     }
+    @IBOutlet var dateIcon: UIImageView!
+    @IBOutlet var cigIcon: UIImageView!
+    @IBOutlet var activityIcon: UIImageView!
     
     func createDatePicker() {
         // Format date and time
@@ -51,6 +54,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
         dateLabel.text = dateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
+        // Change icon to enabled
+        dateIcon.image = #imageLiteral(resourceName: "Time Enabled")
     }
     
     // Save data when "SAVE" clicked
@@ -116,6 +121,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         cigText.text = textField.text
         numCigs = Int(cigText.text!)!
+        // Change icon to enabled
+        cigIcon.image = #imageLiteral(resourceName: "Cigarettes Enabled")
     }
     
     // Detect date picker value change
@@ -129,7 +136,11 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     // Update activities
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        addActivity.setTitle(currActivity.joined(separator:", "), for: .normal)
+        if (currActivity != ["Add activity"]) {
+            addActivity.setTitle(currActivity.joined(separator:", "), for: .normal)
+            // Change icon to enabled
+            activityIcon.image = #imageLiteral(resourceName: "Activity Enabled")
+        }
     }
     
     override func didReceiveMemoryWarning() {

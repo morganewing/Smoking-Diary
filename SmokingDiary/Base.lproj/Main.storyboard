@@ -166,8 +166,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIcon" destination="MxF-7t-j7P" id="YUu-xC-yad"/>
                         <outlet property="addActivity" destination="X5f-FL-DrD" id="yad-qe-NK3"/>
+                        <outlet property="cigIcon" destination="PFF-SB-n0j" id="yT5-n2-J8H"/>
                         <outlet property="cigText" destination="SP1-d1-jo0" id="GBD-Sx-pdp"/>
+                        <outlet property="dateIcon" destination="5mJ-YQ-NbU" id="OW1-rO-mpS"/>
                         <outlet property="dateLabel" destination="Nnx-ae-m74" id="qBZ-46-gb6"/>
                     </connections>
                 </tableViewController>

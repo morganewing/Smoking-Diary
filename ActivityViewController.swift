@@ -90,7 +90,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             } else {
                 currCell?.accessoryType = UITableViewCellAccessoryType.checkmark
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
-                print("hey")
                 // Add activity to list
                 if (indexPath.row < activities.count) {
                     updateActivity.append((currCell?.textLabel!.text)!)
@@ -106,8 +105,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let actCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-        print(actCell)
         // Do any additional setup after loading the view.
 //        for i in 0...activities.count {
 //            print("u there")
