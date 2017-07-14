@@ -224,7 +224,7 @@
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="CustomActivityTableViewCell"/>
                                 <connections>
-                                    <outlet property="newActText" destination="04f-SY-sEw" id="Vgr-Z9-dN5"/>
+                                    <outlet property="newActText" destination="04f-SY-sEw" id="kD1-pQ-C5k"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="custom" id="mly-Fd-8nj" userLabel="CustomActivityTableViewCell" customClass="CustomActivityTableViewCell" customModule="SmokingDiary" customModuleProvider="target">

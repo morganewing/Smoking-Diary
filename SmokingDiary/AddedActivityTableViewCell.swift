@@ -9,8 +9,7 @@
 import UIKit
 
 class AddedActivityTableViewCell: UITableViewCell, UITextFieldDelegate {
-
-   
+    
     @IBOutlet var newActText: UITextField!
     
     // Hide keyboard when "Done" preseed and save new activity to array

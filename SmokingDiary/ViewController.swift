@@ -119,10 +119,12 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     // Save num cigs entered
     func textFieldDidEndEditing(_ textField: UITextField) {
-        cigText.text = textField.text
-        numCigs = Int(cigText.text!)!
-        // Change icon to enabled
-        cigIcon.image = #imageLiteral(resourceName: "Cigarettes Enabled")
+        if (cigText != nil) {
+            cigText.text = textField.text
+            numCigs = Int(cigText.text!)!
+            // Change icon to enabled
+            cigIcon.image = #imageLiteral(resourceName: "Cigarettes Enabled")
+        }
     }
     
     // Detect date picker value change

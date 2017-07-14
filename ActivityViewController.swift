@@ -26,8 +26,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     
     // Default list of activities
     var activities = ["Eating", "Drinking", "Coffee", "Driving", "Social"]
-    // Array of custom activies
-    @IBOutlet var newActivityText: UITextField!
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (activities.count + new) + 1
@@ -114,6 +113,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
 //        }
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
