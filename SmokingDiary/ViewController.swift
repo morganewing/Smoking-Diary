@@ -14,6 +14,7 @@ var currLocation = ["Add location"]
 var numCigs = -1
 var dateTime = ""
 var activityList = [String]()
+var locationList = [String]()
 
 class ViewController: UITableViewController, UITextFieldDelegate {
 
@@ -68,10 +69,11 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             numCigs = Int(self.cigText.text!)!
             dateTime = self.dateLabel.text!
             activityList = currActivity
+            locationList = currLocation
             
             let networkManager = NetworkManager()
             
-            networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList) { (success, error) in
+            networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList) { (success, error) in
                 //
             }
         }
