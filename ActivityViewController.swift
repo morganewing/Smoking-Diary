@@ -76,7 +76,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         if (indexPath.row < (activities.count + new)) {
             let currCell = tableView.cellForRow(at: indexPath)
             if (currCell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
-                print("hello")
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 // Remove activity from list
                 if (indexPath.row < activities.count) {

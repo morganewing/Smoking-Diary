@@ -36,7 +36,6 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Default activity row
         let cellLocation = tableView.dequeueReusableCell(withIdentifier: "cellLocation", for: indexPath)
-        print(indexPath.row)
         cellLocation.textLabel?.text = locations[indexPath.row]
         return cellLocation
     }
@@ -47,7 +46,6 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
         if (indexPath.row < (locations.count + newLocation)) {
             let currCell = tableView.cellForRow(at: indexPath)
             if (currCell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
-                print("hello")
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 // Remove activity from list
                 if (indexPath.row < locations.count) {

@@ -23,7 +23,6 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
         if (updateMood.count > 0) {
             currMood = updateMood
         }
-        print(currMood)
     }
     
     // Default list of activities

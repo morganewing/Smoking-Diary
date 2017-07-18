@@ -20,17 +20,17 @@ class NetworkManager {
 //        $0.dateFormat = "MMMM dd, yyyy"
 //        return $0
 //    }(DateFormatter())
-    let username = "agjnfkavlkfajb"
+    let username = "Morgan"
     
-    func saveEntry(dateTime: String, numCigs: Int, activityList: [String], locationList: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
+    func saveEntry(dateTime: String, numCigs: Int, activityList: [String], locationList: [String], peopleList: [String], moodList: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
             "date": dateTime,
             "numcig": numCigs,
             "activity": activityList,
             "location": locationList,
-            "people": "coworker",
-            "mood": "happy"
+            "people": "Friend",
+            "mood": "Happy"
         ]
     
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {

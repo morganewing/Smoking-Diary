@@ -35,7 +35,6 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Default activity row
         let cellPeople = tableView.dequeueReusableCell(withIdentifier: "cellPeople", for: indexPath)
-        print(indexPath.row)
         cellPeople.textLabel?.text = people[indexPath.row]
         return cellPeople
     }
@@ -46,7 +45,6 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
         if (indexPath.row < (people.count + newPeople)) {
             let currCell = tableView.cellForRow(at: indexPath)
             if (currCell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
-                print("hello")
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 // Remove activity from list
                 if (indexPath.row < people.count) {
