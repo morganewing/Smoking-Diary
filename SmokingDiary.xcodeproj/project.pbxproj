@@ -11,6 +11,7 @@
 		901807EF1F18E8AF0019A064 /* Halcom-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 901807EE1F18E8980019A064 /* Halcom-Medium.otf */; };
 		904A4F351F1E071E00E80249 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A4F341F1E071E00E80249 /* LocationViewController.swift */; };
 		904A4F371F1E105B00E80249 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A4F361F1E105B00E80249 /* PeopleViewController.swift */; };
+		904A4F391F1E165000E80249 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A4F381F1E165000E80249 /* MoodViewController.swift */; };
 		9082D39B1EFBC43A008DC2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082D39A1EFBC43A008DC2EE /* AppDelegate.swift */; };
 		9082D39D1EFBC43A008DC2EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082D39C1EFBC43A008DC2EE /* ViewController.swift */; };
 		9082D3A01EFBC43A008DC2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9082D39E1EFBC43A008DC2EE /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		901807EE1F18E8980019A064 /* Halcom-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Halcom-Medium.otf"; path = "../../../Downloads/Halcom/Halcom-Medium.otf"; sourceTree = "<group>"; };
 		904A4F341F1E071E00E80249 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = SOURCE_ROOT; };
 		904A4F361F1E105B00E80249 /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = SOURCE_ROOT; };
+		904A4F381F1E165000E80249 /* MoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = SOURCE_ROOT; };
 		9082D3971EFBC43A008DC2EE /* SmokingDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmokingDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9082D39A1EFBC43A008DC2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9082D39C1EFBC43A008DC2EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				9093E0891F0286B500F5F979 /* ActivityViewController.swift */,
 				904A4F341F1E071E00E80249 /* LocationViewController.swift */,
 				904A4F361F1E105B00E80249 /* PeopleViewController.swift */,
+				904A4F381F1E165000E80249 /* MoodViewController.swift */,
 				9082D39A1EFBC43A008DC2EE /* AppDelegate.swift */,
 				90B92DA51F1642E200462DE9 /* AddedActivityTableViewCell.swift */,
 				90A2B6951F04FE080051393F /* CustomActivityTableViewCell.swift */,
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51B1E8331F14D7A3003B3DFB /* NetworkManager.swift in Sources */,
+				904A4F391F1E165000E80249 /* MoodViewController.swift in Sources */,
 				9093E07C1F025E7E00F5F979 /* LocationTableViewCell.swift in Sources */,
 				9093E0701EFBCD9900F5F979 /* EntryTableViewCell.swift in Sources */,
 				90A2B6961F04FE080051393F /* CustomActivityTableViewCell.swift in Sources */,

@@ -12,11 +12,13 @@ import UIKit
 var currActivity = ["Add activity"]
 var currLocation = ["Add location"]
 var currPeople = ["Add people"]
+var currMood = ["Add mood"]
 var numCigs = -1
 var dateTime = ""
 var activityList = [String]()
 var locationList = [String]()
 var peopleList = [String]()
+var moodList = [String]()
 
 class ViewController: UITableViewController, UITextFieldDelegate {
 
@@ -30,12 +32,13 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     }
     @IBOutlet var addLocation: UIButton!
     @IBOutlet var addPeople: UIButton!
+    @IBOutlet var addMood: UIButton!
     @IBOutlet var dateIcon: UIImageView!
     @IBOutlet var cigIcon: UIImageView!
     @IBOutlet var activityIcon: UIImageView!
     @IBOutlet var locationIcon: UIImageView!
     @IBOutlet var peopleIcon: UIImageView!
-    
+    @IBOutlet var moodIcon: UIImageView!
     
     func createDatePicker() {
         // Format date and time
@@ -76,6 +79,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             activityList = currActivity
             locationList = currLocation
             peopleList = currPeople
+            moodList = currMood
             
             let networkManager = NetworkManager()
             
@@ -168,6 +172,13 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             peopleIcon.image = #imageLiteral(resourceName: "People Enabled")
             // Change text color to black
             addPeople.setTitleColor(UIColor.black, for: .normal)
+        }
+        if (currMood != ["Add mood"]) {
+            addMood.setTitle(currMood.joined(separator:", "), for: .normal)
+            // Change icon to enabled
+            moodIcon.image = #imageLiteral(resourceName: "Mood Enabled")
+            // Change text color to black
+            addMood.setTitleColor(UIColor.black, for: .normal)
         }
     }
     
