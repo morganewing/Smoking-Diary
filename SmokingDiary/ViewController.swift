@@ -10,6 +10,7 @@ import UIKit
 
 // Global variables
 var currActivity = ["Add activity"]
+var currLocation = ["Add location"]
 var numCigs = -1
 var dateTime = ""
 var activityList = [String]()
@@ -24,9 +25,11 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func addActivity(_ sender: Any) {
         
     }
+    @IBOutlet var addLocation: UIButton!
     @IBOutlet var dateIcon: UIImageView!
     @IBOutlet var cigIcon: UIImageView!
     @IBOutlet var activityIcon: UIImageView!
+    @IBOutlet var locationIcon: UIImageView!
     
     func createDatePicker() {
         // Format date and time
@@ -51,7 +54,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
      
-        
         dateLabel.text = dateFormatter.string(from: datePicker.date)
         dateLabel.textColor = UIColor.black
         self.view.endEditing(true)
@@ -144,6 +146,13 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             activityIcon.image = #imageLiteral(resourceName: "Activity Enabled")
             // Change text color to black
             addActivity.setTitleColor(UIColor.black, for: .normal)
+        }
+        if (currLocation != ["Add location"]) {
+            addLocation.setTitle(currLocation.joined(separator:", "), for: .normal)
+            // Change icon to enabled
+            locationIcon.image = #imageLiteral(resourceName: "Location Enabled")
+            // Change text color to black
+            addLocation.setTitleColor(UIColor.black, for: .normal)
         }
     }
     

@@ -22,13 +22,13 @@ class NetworkManager {
 //    }(DateFormatter())
     let username = "agjnfkavlkfajb"
     
-    func saveEntry(dateTime: String, numCigs: Int, activityList: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
+    func saveEntry(dateTime: String, numCigs: Int, activityList: [String], locationList: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
             "date": dateTime,
             "numcig": numCigs,
             "activity": activityList,
-            "location": "quit genius",
+            "location": locationList,
             "people": "coworker",
             "mood": "happy"
         ]
