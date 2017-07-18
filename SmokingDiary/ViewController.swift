@@ -11,10 +11,12 @@ import UIKit
 // Global variables
 var currActivity = ["Add activity"]
 var currLocation = ["Add location"]
+var currPeople = ["Add people"]
 var numCigs = -1
 var dateTime = ""
 var activityList = [String]()
 var locationList = [String]()
+var peopleList = [String]()
 
 class ViewController: UITableViewController, UITextFieldDelegate {
 
@@ -27,10 +29,13 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
     }
     @IBOutlet var addLocation: UIButton!
+    @IBOutlet var addPeople: UIButton!
     @IBOutlet var dateIcon: UIImageView!
     @IBOutlet var cigIcon: UIImageView!
     @IBOutlet var activityIcon: UIImageView!
     @IBOutlet var locationIcon: UIImageView!
+    @IBOutlet var peopleIcon: UIImageView!
+    
     
     func createDatePicker() {
         // Format date and time
@@ -70,6 +75,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             dateTime = self.dateLabel.text!
             activityList = currActivity
             locationList = currLocation
+            peopleList = currPeople
             
             let networkManager = NetworkManager()
             
@@ -155,6 +161,13 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             locationIcon.image = #imageLiteral(resourceName: "Location Enabled")
             // Change text color to black
             addLocation.setTitleColor(UIColor.black, for: .normal)
+        }
+        if (currPeople != ["Add people"]) {
+            addPeople.setTitle(currPeople.joined(separator:", "), for: .normal)
+            // Change icon to enabled
+            peopleIcon.image = #imageLiteral(resourceName: "People Enabled")
+            // Change text color to black
+            addPeople.setTitleColor(UIColor.black, for: .normal)
         }
     }
     

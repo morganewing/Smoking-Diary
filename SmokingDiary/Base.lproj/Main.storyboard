@@ -122,17 +122,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add people" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yg7-cL-a85">
-                                                    <rect key="frame" x="80" y="29" width="295" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                                </textField>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="People Disabled" translatesAutoresizingMaskIntoConstraints="NO" id="pUs-PB-v8M">
                                                     <rect key="frame" x="8" y="13" width="72" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHN-Om-3jf">
+                                                    <rect key="frame" x="79" y="28" width="296" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="Add people">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addActivity:" destination="u7v-C8-KXm" eventType="touchUpInside" id="U7S-A3-Muf"/>
+                                                        <segue destination="aBZ-kq-qZJ" kind="show" id="Ml7-LO-TZb"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -175,11 +180,13 @@
                         <outlet property="activityIcon" destination="MxF-7t-j7P" id="YUu-xC-yad"/>
                         <outlet property="addActivity" destination="X5f-FL-DrD" id="yad-qe-NK3"/>
                         <outlet property="addLocation" destination="Arx-iW-fx9" id="3JE-Zj-ec3"/>
+                        <outlet property="addPeople" destination="HHN-Om-3jf" id="RF7-5E-zBN"/>
                         <outlet property="cigIcon" destination="PFF-SB-n0j" id="yT5-n2-J8H"/>
                         <outlet property="cigText" destination="SP1-d1-jo0" id="GBD-Sx-pdp"/>
                         <outlet property="dateIcon" destination="5mJ-YQ-NbU" id="OW1-rO-mpS"/>
                         <outlet property="dateLabel" destination="Nnx-ae-m74" id="qBZ-46-gb6"/>
                         <outlet property="locationIcon" destination="6B2-Y0-Geh" id="IMa-tC-vdD"/>
+                        <outlet property="peopleIcon" destination="pUs-PB-v8M" id="k7w-nW-VdQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCT-7N-Xx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,7 +337,40 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLt-9a-yjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063" y="808"/>
+            <point key="canvasLocation" x="1350" y="819"/>
+        </scene>
+        <!--Add People-->
+        <scene sceneID="MEZ-5J-T0Q">
+            <objects>
+                <tableViewController id="aBZ-kq-qZJ" userLabel="Add People" customClass="PeopleViewController" customModule="SmokingDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="v2R-OJ-kPT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellPeople" id="uO9-Q6-xqx">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uO9-Q6-xqx" id="abQ-Tq-gF4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add People" id="kSm-ca-DtX" userLabel="Add People">
+                        <barButtonItem key="rightBarButtonItem" title="SAVE" id="96u-7c-drX">
+                            <connections>
+                                <action selector="doneButtonPeople:" destination="aBZ-kq-qZJ" id="3bZ-ap-w6l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w3U-d1-W42" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="787"/>
         </scene>
     </scenes>
     <resources>

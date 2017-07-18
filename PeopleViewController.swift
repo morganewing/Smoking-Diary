@@ -9,50 +9,49 @@
 import UIKit
 import os.log
 
-var customLocation = [String]()
+var customPeople = [String]()
 // Number of custom activities
-var newLocation = 0
+var newPeople = 0
 
-class LocationViewController: UITableViewController, UITextFieldDelegate {
+class PeopleViewController: UITableViewController, UITextFieldDelegate {
     
-    var updateLocation = [String]()
+    var updatePeople = [String]()
     
     // Update activities when done button pressed
-    @IBAction func doneButtonLocation(_ sender: Any) {
-        if (updateLocation.count > 0) {
-            currLocation = updateLocation
+    @IBAction func doneButtonPeople(_ sender: Any) {
+        if (updatePeople.count > 0) {
+            currPeople = updatePeople
         }
-        print(currLocation)
     }
     
     // Default list of activities
-    var locations = ["Home", "Work", "Restaurant", "Pub", "Cinema"]
+    var people = ["Friends", "Family", "Colleagues"]
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (locations.count + newLocation)
+        return (people.count + newPeople)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Default activity row
-        let cellLocation = tableView.dequeueReusableCell(withIdentifier: "cellLocation", for: indexPath)
+        let cellPeople = tableView.dequeueReusableCell(withIdentifier: "cellPeople", for: indexPath)
         print(indexPath.row)
-        cellLocation.textLabel?.text = locations[indexPath.row]
-        return cellLocation
+        cellPeople.textLabel?.text = people[indexPath.row]
+        return cellPeople
     }
     
     // Add checkmarks and set currActivity to selected activity
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Toggle selection circles
-        if (indexPath.row < (locations.count + newLocation)) {
+        if (indexPath.row < (people.count + newPeople)) {
             let currCell = tableView.cellForRow(at: indexPath)
             if (currCell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
                 print("hello")
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 // Remove activity from list
-                if (indexPath.row < locations.count) {
-                    if let itemToRemoveIndex = updateLocation.index(of: (currCell?.textLabel!.text)!) {
-                        updateLocation.remove(at: itemToRemoveIndex)
+                if (indexPath.row < people.count) {
+                    if let itemToRemoveIndex = updatePeople.index(of: (currCell?.textLabel!.text)!) {
+                        updatePeople.remove(at: itemToRemoveIndex)
                     }
                 } else {
                     //remove custom activity!!!!
@@ -61,11 +60,11 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
                 currCell?.accessoryType = UITableViewCellAccessoryType.checkmark
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
                 // Add activity to list
-                if (indexPath.row < locations.count) {
-                    updateLocation.append((currCell?.textLabel!.text)!)
+                if (indexPath.row < people.count) {
+                    updatePeople.append((currCell?.textLabel!.text)!)
                 } else {
-                     if (indexPath.row < (locations.count + newLocation)) {
-                        updateLocation.append(customAct[indexPath.row-locations.count])
+                     if (indexPath.row < (people.count + newPeople)) {
+                        updatePeople.append(customAct[indexPath.row-people.count])
                     }
                 }
             }
