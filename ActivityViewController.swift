@@ -56,11 +56,13 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         if (indexPath.row < activities.count) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = activities[indexPath.row]
+            cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
             return cell
         } else {
             // Added new activity row
             if (indexPath.row < (activities.count + new)) {
                 let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
+                added.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 return added
             // Add activity option row
             } else {
@@ -104,12 +106,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        for i in 0...activities.count {
-//            print("u there")
-//            let actCell = tableView.cellForRow(at: IndexPath(row: i, section: 0))
-//            print(actCell)
-//            actCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
-//        }
     }
 
     

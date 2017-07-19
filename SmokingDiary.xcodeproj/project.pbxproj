@@ -27,6 +27,9 @@
 		9093E08A1F0286B500F5F979 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9093E0891F0286B500F5F979 /* ActivityViewController.swift */; };
 		9093E08C1F02A1FA00F5F979 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9093E08B1F02A1FA00F5F979 /* DatePickerTableViewCell.swift */; };
 		90A2B6961F04FE080051393F /* CustomActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2B6951F04FE080051393F /* CustomActivityTableViewCell.swift */; };
+		90A5984B1F1F61BC00A40178 /* UserEntriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5984A1F1F61BC00A40178 /* UserEntriesTableViewController.swift */; };
+		90A5984D1F1F807500A40178 /* AddedLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5984C1F1F807500A40178 /* AddedLocationTableViewCell.swift */; };
+		90A5984F1F1F80AF00A40178 /* CustomLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5984E1F1F80AF00A40178 /* CustomLocationTableViewCell.swift */; };
 		90B92DA61F1642E200462DE9 /* AddedActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B92DA51F1642E200462DE9 /* AddedActivityTableViewCell.swift */; };
 		9DDA3F1C02BD676194CA8DE0 /* Pods_SmokingDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77B58F46E348D879BD1638F /* Pods_SmokingDiaryTests.framework */; };
 		A8F9596E230DF5D58236EFCC /* Pods_SmokingDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EB89A43E12382ACC2E1A3B /* Pods_SmokingDiary.framework */; };
@@ -68,6 +71,9 @@
 		9093E0891F0286B500F5F979 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityViewController.swift; path = ../ActivityViewController.swift; sourceTree = "<group>"; };
 		9093E08B1F02A1FA00F5F979 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		90A2B6951F04FE080051393F /* CustomActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityTableViewCell.swift; sourceTree = "<group>"; };
+		90A5984A1F1F61BC00A40178 /* UserEntriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntriesTableViewController.swift; sourceTree = "<group>"; };
+		90A5984C1F1F807500A40178 /* AddedLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedLocationTableViewCell.swift; sourceTree = "<group>"; };
+		90A5984E1F1F80AF00A40178 /* CustomLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLocationTableViewCell.swift; sourceTree = "<group>"; };
 		90B92DA51F1642E200462DE9 /* AddedActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedActivityTableViewCell.swift; sourceTree = "<group>"; };
 		B1EB89A43E12382ACC2E1A3B /* Pods_SmokingDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmokingDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C121697B5077969450F85945 /* Pods-SmokingDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmokingDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmokingDiary/Pods-SmokingDiary.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 			children = (
 				901807EE1F18E8980019A064 /* Halcom-Medium.otf */,
 				9082D39E1EFBC43A008DC2EE /* Main.storyboard */,
+				90A5984A1F1F61BC00A40178 /* UserEntriesTableViewController.swift */,
 				9082D39C1EFBC43A008DC2EE /* ViewController.swift */,
 				9093E0891F0286B500F5F979 /* ActivityViewController.swift */,
 				904A4F341F1E071E00E80249 /* LocationViewController.swift */,
@@ -148,7 +155,9 @@
 				904A4F381F1E165000E80249 /* MoodViewController.swift */,
 				9082D39A1EFBC43A008DC2EE /* AppDelegate.swift */,
 				90B92DA51F1642E200462DE9 /* AddedActivityTableViewCell.swift */,
+				90A5984C1F1F807500A40178 /* AddedLocationTableViewCell.swift */,
 				90A2B6951F04FE080051393F /* CustomActivityTableViewCell.swift */,
+				90A5984E1F1F80AF00A40178 /* CustomLocationTableViewCell.swift */,
 				9093E08B1F02A1FA00F5F979 /* DatePickerTableViewCell.swift */,
 				9093E07B1F025E7E00F5F979 /* LocationTableViewCell.swift */,
 				9093E07D1F025E9C00F5F979 /* PeopleTableViewCell.swift */,
@@ -378,13 +387,16 @@
 			files = (
 				51B1E8331F14D7A3003B3DFB /* NetworkManager.swift in Sources */,
 				904A4F391F1E165000E80249 /* MoodViewController.swift in Sources */,
+				90A5984F1F1F80AF00A40178 /* CustomLocationTableViewCell.swift in Sources */,
 				9093E07C1F025E7E00F5F979 /* LocationTableViewCell.swift in Sources */,
+				90A5984B1F1F61BC00A40178 /* UserEntriesTableViewController.swift in Sources */,
 				9093E0701EFBCD9900F5F979 /* EntryTableViewCell.swift in Sources */,
 				90A2B6961F04FE080051393F /* CustomActivityTableViewCell.swift in Sources */,
 				9082D39D1EFBC43A008DC2EE /* ViewController.swift in Sources */,
 				904A4F371F1E105B00E80249 /* PeopleViewController.swift in Sources */,
 				9093E08C1F02A1FA00F5F979 /* DatePickerTableViewCell.swift in Sources */,
 				9093E08A1F0286B500F5F979 /* ActivityViewController.swift in Sources */,
+				90A5984D1F1F807500A40178 /* AddedLocationTableViewCell.swift in Sources */,
 				904A4F351F1E071E00E80249 /* LocationViewController.swift in Sources */,
 				90B92DA61F1642E200462DE9 /* AddedActivityTableViewCell.swift in Sources */,
 				9093E07A1F025B4500F5F979 /* ActivityTableViewCell.swift in Sources */,
