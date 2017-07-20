@@ -86,6 +86,10 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList) { (success, error) in
                 //
             }
+            
+            networkManager.retrieveEntries() { (success, error) in
+                //
+            }
         }
     }
     

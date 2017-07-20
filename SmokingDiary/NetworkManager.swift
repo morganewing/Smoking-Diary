@@ -15,11 +15,7 @@ enum NetworkError {
 
 class NetworkManager {
 
-    let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/back"
-//    let dateFormatter: DateFormatter = {
-//        $0.dateFormat = "MMMM dd, yyyy"
-//        return $0
-//    }(DateFormatter())
+    let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/this"
     let username = "Morgan"
     
     func saveEntry(dateTime: String, numCigs: Int, activityList: [String], locationList: [String], peopleList: [String], moodList: [String], completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
@@ -29,8 +25,9 @@ class NetworkManager {
             "numcig": numCigs,
             "activity": activityList,
             "location": locationList,
-            "people": "Friend",
-            "mood": "Happy"
+            "people": "People",
+            "mood": "Mood"
+            //add action
         ]
     
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
@@ -40,5 +37,18 @@ class NetworkManager {
             print(response)
         }
     }
-
+    
+    func retrieveEntries(completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
+        let parameters: Parameters = [
+            "username": username
+        ]
+        
+        Alamofire.request(API_URL, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+            response in
+            // check data
+            completion(false, NetworkError.BadConnection)
+            print("yo")
+            print(response)
+        }
+    }
 }
