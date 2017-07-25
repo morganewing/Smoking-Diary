@@ -177,7 +177,7 @@
                     <navigationItem key="navigationItem" title="Smoking Diary Entry" id="Xa1-fU-fYc">
                         <barButtonItem key="leftBarButtonItem" title="EDIT" id="ryg-V6-6IZ" userLabel="EDIT">
                             <connections>
-                                <segue destination="h3W-Jg-lGM" kind="show" id="ja3-Vr-azb"/>
+                                <segue destination="h3W-Jg-lGM" kind="show" id="xGH-b7-xY5"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="SAVE" id="1sE-wi-Kct">
@@ -385,7 +385,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOF-Dw-IZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-596" y="-559"/>
+            <point key="canvasLocation" x="-610" y="-564"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m07-FU-DGc">

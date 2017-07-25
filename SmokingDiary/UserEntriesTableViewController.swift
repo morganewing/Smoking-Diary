@@ -18,6 +18,12 @@ class UserEntriesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let networkManager = NetworkManager()
+        
+        networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, method: "edit") { (success, error) in
+            //
+        }
     }
 
     override func didReceiveMemoryWarning() {

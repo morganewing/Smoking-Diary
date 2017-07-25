@@ -41,9 +41,14 @@ class NetworkManager {
             
             print("whats good")
             if let result = response.result.value {
-                let JSON = result as! NSArray
-                print(JSON)
-                print(JSON[0])
+                if (method == "edit") {
+                    let JSON = result as! NSArray
+                    print(JSON[0])
+                }
+                if (method == "add") {
+                    let JSON = result as! NSDictionary
+                    print(JSON)
+                }
             }
         }
     }
