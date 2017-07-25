@@ -15,8 +15,6 @@ var new = 0
 
 class ActivityViewController: UITableViewController, UITextFieldDelegate {
     
-    var updateActivity = [String]()
-    
     // Update activities when done button pressed
     @IBAction func doneButton(_ sender: Any) {
         if (updateActivity.count > 0) {
@@ -56,7 +54,14 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         if (indexPath.row < activities.count) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = activities[indexPath.row]
-            cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
+            let cellText = cell.textLabel?.text
+            if (updateActivity.contains(cellText!)) {
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark
+                cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
+                print(cellText)
+            } else {
+                cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
+            }
             return cell
         } else {
             // Added new activity row
@@ -77,6 +82,8 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         // Toggle selection circles
         if (indexPath.row < (activities.count + new)) {
             let currCell = tableView.cellForRow(at: indexPath)
+            let string = (currCell?.textLabel!.text)!
+            print(string)
             if (currCell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 // Remove activity from list

@@ -19,6 +19,10 @@ var activityList = [String]()
 var locationList = [String]()
 var peopleList = [String]()
 var moodList = [String]()
+// Selected activities
+var updateActivity = [String]()
+
+var meth = ""
 
 class ViewController: UITableViewController, UITextFieldDelegate {
 
@@ -83,7 +87,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             
             let networkManager = NetworkManager()
             
-            networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList) { (success, error) in
+            networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, method: meth) { (success, error) in
                 //
             }
             
