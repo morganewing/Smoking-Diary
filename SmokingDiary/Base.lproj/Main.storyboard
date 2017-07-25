@@ -175,6 +175,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Smoking Diary Entry" id="Xa1-fU-fYc">
+                        <barButtonItem key="leftBarButtonItem" title="EDIT" id="ryg-V6-6IZ" userLabel="EDIT">
+                            <connections>
+                                <segue destination="h3W-Jg-lGM" kind="show" id="ja3-Vr-azb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="SAVE" id="1sE-wi-Kct">
                             <connections>
                                 <action selector="saveButton:" destination="u7v-C8-KXm" id="r2F-4G-3Gh"/>

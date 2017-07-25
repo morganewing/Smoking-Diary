@@ -27,29 +27,49 @@ class NetworkManager {
             "location": locationList,
             "people": peopleList,
             "mood": moodList,
-            "method": "add"
+            "method": method
             //add action
         ]
+        
+        //post method
     
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
             // check data
             completion(false, NetworkError.BadConnection)
-            print(response)
-        }
-    }
-    
-    func retrieveEntries(completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
-        let parameters: Parameters = [
-            "username": username
-        ]
-        
-        Alamofire.request(API_URL, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
-            response in
-            // check data
-            completion(false, NetworkError.BadConnection)
-            print("yo")
-            print(response)
+            //print(response)
+            
+            print("whats good")
+            if let result = response.result.value {
+                let JSON = result as! NSArray
+                print(JSON)
+                print(JSON[0])
+            }
         }
     }
 }
+
+//        Alamofire.request(API_URL, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+//            response in
+//                        // check data
+//            completion(false, NetworkError.BadConnection)
+//            //print(response.result.value!)
+//            print("yo")
+//            print(response)
+//        }
+//    }
+    
+//    func retrieveEntries(completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
+//        let parameters: Parameters = [
+//            "username": username
+//        ]
+//        print(username)
+//        
+//        Alamofire.request(API_URL, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+//            response in
+//            // check data
+//            completion(false, NetworkError.BadConnection)
+//            print("yo")
+//            print(response)
+//        }
+//    }
