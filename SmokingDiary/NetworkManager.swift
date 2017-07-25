@@ -42,8 +42,8 @@ class NetworkManager {
             print("whats good")
             if let result = response.result.value {
                 if (method == "edit") {
-                    let JSON = result as! NSArray
-                    print(JSON[0])
+                    let editArray = result as! NSDictionary
+                    print(editArray)
                 }
                 if (method == "add") {
                     let JSON = result as! NSDictionary
@@ -53,28 +53,3 @@ class NetworkManager {
         }
     }
 }
-
-//        Alamofire.request(API_URL, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
-//            response in
-//                        // check data
-//            completion(false, NetworkError.BadConnection)
-//            //print(response.result.value!)
-//            print("yo")
-//            print(response)
-//        }
-//    }
-    
-//    func retrieveEntries(completion: @escaping (_ success: Bool, _ error: NetworkError?) -> Void) {
-//        let parameters: Parameters = [
-//            "username": username
-//        ]
-//        print(username)
-//        
-//        Alamofire.request(API_URL, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
-//            response in
-//            // check data
-//            completion(false, NetworkError.BadConnection)
-//            print("yo")
-//            print(response)
-//        }
-//    }

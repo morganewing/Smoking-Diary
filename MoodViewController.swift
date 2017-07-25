@@ -15,9 +15,6 @@ var newMood = 0
 
 class MoodViewController: UITableViewController, UITextFieldDelegate {
     
-    var updateMood = [String]()
-    
-    
     // Update activities when done button pressed
     @IBAction func doneButtonMood(_ sender: Any) {
         if (updateMood.count > 0) {
@@ -37,6 +34,13 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
         // Default activity row
         let cellMood = tableView.dequeueReusableCell(withIdentifier: "cellMood", for: indexPath)
         cellMood.textLabel?.text = moods[indexPath.row]
+        let cellText = cellMood.textLabel?.text
+        if (updateMood.contains(cellText!)) {
+            cellMood.accessoryType = UITableViewCellAccessoryType.checkmark
+            cellMood.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
+        } else {
+            cellMood.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
+        }
         return cellMood
     }
     

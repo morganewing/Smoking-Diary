@@ -19,8 +19,11 @@ var activityList = [String]()
 var locationList = [String]()
 var peopleList = [String]()
 var moodList = [String]()
-// Selected activities
+// Selected items
 var updateActivity = [String]()
+var updateLocation = [String]()
+var updatePeople = [String]()
+var updateMood = [String]()
 
 var meth = ""
 

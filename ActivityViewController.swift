@@ -58,7 +58,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             if (updateActivity.contains(cellText!)) {
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
                 cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
-                print(cellText)
             } else {
                 cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
             }

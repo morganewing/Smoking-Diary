@@ -15,8 +15,6 @@ var newLocation = 0
 
 class LocationViewController: UITableViewController, UITextFieldDelegate {
     
-    var updateLocation = [String]()
-    
     // Update activities when done button pressed
     @IBAction func doneButtonLocation(_ sender: Any) {
         if (updateLocation.count > 0) {
@@ -37,6 +35,13 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
         // Default activity row
         let cellLocation = tableView.dequeueReusableCell(withIdentifier: "cellLocation", for: indexPath)
         cellLocation.textLabel?.text = locations[indexPath.row]
+        let cellText = cellLocation.textLabel?.text
+        if (updateLocation.contains(cellText!)) {
+            cellLocation.accessoryType = UITableViewCellAccessoryType.checkmark
+            cellLocation.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
+        } else {
+            cellLocation.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
+        }
         return cellLocation
     }
     

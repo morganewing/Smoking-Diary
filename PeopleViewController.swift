@@ -15,8 +15,6 @@ var newPeople = 0
 
 class PeopleViewController: UITableViewController, UITextFieldDelegate {
     
-    var updatePeople = [String]()
-    
     // Update activities when done button pressed
     @IBAction func doneButtonPeople(_ sender: Any) {
         if (updatePeople.count > 0) {
@@ -36,6 +34,13 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
         // Default activity row
         let cellPeople = tableView.dequeueReusableCell(withIdentifier: "cellPeople", for: indexPath)
         cellPeople.textLabel?.text = people[indexPath.row]
+        let cellText = cellPeople.textLabel?.text
+        if (updatePeople.contains(cellText!)) {
+            cellPeople.accessoryType = UITableViewCellAccessoryType.checkmark
+            cellPeople.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
+        } else {
+            cellPeople.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
+        }
         return cellPeople
     }
     
