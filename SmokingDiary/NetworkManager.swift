@@ -38,35 +38,10 @@ class NetworkManager {
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
             // check data
-            //print(response)
             
-            var names = [String]()
-            
-            do {
-                if let data = response.data,
-                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                    let activity = json["activity"] as? [[String: Any]] {
-                    for activity in activity {
-                        print(activity)
-                    }
-                    print("hey")
-                }
-            } catch {
-                print("Error deserializing JSON: \(error)")
-            }
-            
-            print(names)
-            
-            if let result = response.result.value {
-                if (method == "edit") {
-                    editArray = result as! NSArray
-                }
-                if (method == "add") {
-                    let JSON = result as! NSDictionary
-                    print(JSON)
-                }
-            }
             completion(false, NetworkError.BadConnection)
+            
+            print(response)
         }
     }
 }
