@@ -9,13 +9,13 @@
 import UIKit
 
 class AddedActivityTableViewCell: UITableViewCell, UITextFieldDelegate {
-    
+
     @IBOutlet var newActText: UITextField!
     
     // Hide keyboard when "Done" preseed and save new activity to array
     @IBAction func resignKeyboard(_ sender: AnyObject) {
         customAct.append(newActText.text!)
-        new += 1
+        updateActivity.append(newActText.text!)
         sender.resignFirstResponder()
     }
     

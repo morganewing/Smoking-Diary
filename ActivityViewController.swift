@@ -33,8 +33,8 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     // Add custom activity when "Add" pressed
     @IBAction func addButton(_ sender: Any) {
         // New activity array
-        new = 1
         self.tableView.beginUpdates()
+        new += 1
         let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
         self.tableView.insertRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
         self.tableView.endUpdates()
@@ -43,7 +43,14 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     // Delete custom activity row when "Del" pressed
     @IBAction func deleteButton(_ sender: UIButton) {
         self.tableView.beginUpdates()
+        print((activities.count + new)-1)
         let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
+        var index = new - 1
+        let newActText = customAct[index]
+        if (updateActivity.contains(newActText)) {
+            index = updateActivity.index(of: newActText)!
+            updateActivity.remove(at: index)
+        }
         self.tableView.deleteRows(at: [newItemIndexPath], with: UITableViewRowAnimation.automatic)
         new -= 1
         self.tableView.endUpdates()
@@ -66,7 +73,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             // Added new activity row
             if (indexPath.row < (activities.count + new)) {
                 let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
-                added.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
+                added.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
                 return added
             // Add activity option row
             } else {
