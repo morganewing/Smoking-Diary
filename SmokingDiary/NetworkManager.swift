@@ -17,6 +17,8 @@ var editArray: NSArray! = []
 
 class NetworkManager {
 
+    typealias JSON = [String: Any]
+
     let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/this"
     let username = "Morgan"
 
@@ -26,12 +28,13 @@ class NetworkManager {
             "method": "edit"
         ]
 
-        Alamofire.request(API_URL, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
             switch response.result {
             case .success(let json):
-                guard let json = json as? [String: Any],
-                    let entries = json["entries"] as? [[String: Any]] else {
+
+                guard let _json = json as? JSON,
+                    let entries = _json["entries"] as? [JSON] else {
                     completion([])
                     return
                 }

@@ -9,6 +9,8 @@
 import UIKit
 
 class UserEntriesTableViewController: UITableViewController {
+    
+    var entries: [Entry] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +24,9 @@ class UserEntriesTableViewController: UITableViewController {
         let networkManager = NetworkManager()
         
         //username hardcoded
-        networkManager.listEntries(for: "Morgan")  { _ in
-            //
+        networkManager.listEntries(for: "Morgan")  { entries in
+            self.entries = entries
+            self.tableView.reloadData()
         }
     }
 
