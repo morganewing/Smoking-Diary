@@ -60,7 +60,7 @@ class NetworkManager {
             "location": locationList,
             "people": peopleList,
             "mood": moodList,
-            "method": method
+            "method": "add"
             //add action
         ]
         
@@ -70,9 +70,9 @@ class NetworkManager {
             response in
             // check data
             
-            completion(false, NetworkError.BadConnection)
+            //completion(false, NetworkError.BadConnection)
             
-            print(response)
+            //print(response)
         }
     }
 }

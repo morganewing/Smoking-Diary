@@ -21,7 +21,8 @@ class UserEntriesTableViewController: UITableViewController {
         
         let networkManager = NetworkManager()
         
-        networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, method: "edit") { (success, error) in
+        //username hardcoded
+        networkManager.listEntries(for: "Morgan")  { _ in
             //
         }
     }
