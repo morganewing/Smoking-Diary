@@ -47,6 +47,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
         var index = new - 1
         let newActText = customAct[index]
+        customAct.remove(at: index)
         if (updateActivity.contains(newActText)) {
             index = updateActivity.index(of: newActText)!
             updateActivity.remove(at: index)
@@ -55,6 +56,14 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         new -= 1
         self.tableView.endUpdates()
     }
+//    @IBOutlet var newActText: UITextField!
+    
+    // Hide keyboard when "Done" preseed and save new activity to array
+//    @IBAction func resignKeyboard(_ sender: AnyObject) {
+//        customAct.append(newActText.text!)
+//        updateActivity.append(newActText.text!)
+//        sender.resignFirstResponder()
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Default activity row
@@ -74,6 +83,11 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             if (indexPath.row < (activities.count + new)) {
                 let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
                 added.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
+                if (customAct.count > 0) {
+                    print(indexPath.row)
+                    print(activities.count)
+                    added.textLabel?.text = customAct[indexPath.row - activities.count]
+                }
                 return added
             // Add activity option row
             } else {
