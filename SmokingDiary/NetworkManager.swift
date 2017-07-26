@@ -44,6 +44,7 @@ class NetworkManager {
                     }
                     entryObjects.append(Entry(username: username, date: date, numcig: numcig))
                 }
+                print(entryObjects)
                 completion(entryObjects)
             case .failure(_):
                 completion([])
