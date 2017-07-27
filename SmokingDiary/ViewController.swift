@@ -90,6 +90,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             
             let networkManager = NetworkManager()
             
+            print("hey")
+            
             networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, method: "add") { (success, error) in
                 //
             }

@@ -23,7 +23,7 @@ class NetworkManager {
     let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/this"
     let username = "Morgan"
     
-    func deleteEntry(username: String, date: String, completion:  @escaping (_ entries: [Entry]) -> Void) {
+    func deleteEntry(username: String, date: String, completion:  @escaping (_ entries: [Entry], _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
             "method": "delete",
@@ -40,7 +40,7 @@ class NetworkManager {
     func listEntries(for username: String, completion: @escaping (_ entries: [Entry]) -> Void) {
         let parameters: Parameters = [
             "username": username,
-            "method": "edit"
+            "method": "list"
         ]
 
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
@@ -95,7 +95,7 @@ class NetworkManager {
             
             //completion(false, NetworkError.BadConnection)
             
-            //print(response)
+            print(response)
         }
     }
 }

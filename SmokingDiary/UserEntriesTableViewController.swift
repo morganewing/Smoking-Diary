@@ -29,6 +29,8 @@ class UserEntriesTableViewController: UITableViewController {
             self.tableView.reloadData()
             print(entries)
         }
+        
+        tableView.allowsSelectionDuringEditing = true;
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,15 +43,46 @@ class UserEntriesTableViewController: UITableViewController {
         return entries.count
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let date = entries[indexPath.row].date
+            let networkManager = NetworkManager()
+            //Username hardcoded
+            networkManager.deleteEntry(username: "Morgan", date: date) { (success, error) in
+                //
+            }
+            entries.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // Set up rows with data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entryCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         let date = entries[indexPath.row].date
         entryCell.textLabel?.text = date
-        entryCell.accessoryType = UITableViewCellAccessoryType.checkmark
-        entryCell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Delete Activity"))
         return entryCell
     }
+    
+    // Delete selected entry
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        // Toggle selection circles
+//        self.tableView.beginUpdates()
+//        let indexArray = [indexPath]
+//        self.tableView.deleteRows(at: indexArray, with: UITableViewRowAnimation.automatic)
+//        let date = entries[indexPath.row].date
+//        let networkManager = NetworkManager()
+//        //Username hardcoded
+//        networkManager.deleteEntry(username: "Morgan", date: date) { (success, error) in
+//            //
+//        }
+//        entries.remove(at: indexPath.row)
+//        self.tableView.endUpdates()
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,14 +91,6 @@ class UserEntriesTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
     }
     */
 
