@@ -35,13 +35,6 @@ class UserEntriesTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-
     // Number of rows = number of entries
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
@@ -50,10 +43,10 @@ class UserEntriesTableViewController: UITableViewController {
     // Set up rows with data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entryCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
-        //entries[indexPath.row]
-        //let cellText = cell.textLabel?.text
+        let date = entries[indexPath.row].date
+        entryCell.textLabel?.text = date
         entryCell.accessoryType = UITableViewCellAccessoryType.checkmark
-        entryCell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
+        entryCell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Delete Activity"))
         return entryCell
     }
 
