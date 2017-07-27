@@ -56,12 +56,15 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         new -= 1
         self.tableView.endUpdates()
     }
-//    @IBOutlet var newActText: UITextField!
     
-    // Hide keyboard when "Done" preseed and save new activity to array
+    
+    
+//    @IBOutlet var activityText: UITextField!
+    
+//    // Hide keyboard when "Done" preseed and save new activity to array
 //    @IBAction func resignKeyboard(_ sender: AnyObject) {
-//        customAct.append(newActText.text!)
-//        updateActivity.append(newActText.text!)
+//        customAct.append(activityText.text!)
+//        updateActivity.append(activityText.text!)
 //        sender.resignFirstResponder()
 //    }
     
