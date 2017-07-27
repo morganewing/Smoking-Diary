@@ -10,9 +10,18 @@ class Entry {
     let username: String
     let date: String
     let numcig: Int
-    init(username: String, date: String, numcig: Int) {
+    let activity: [String]
+    let location: [String]
+    let people: [String]
+    let mood: [String]
+    
+    init(username: String, date: String, numcig: Int, activity: [String], location: [String], people: [String], mood: [String]) {
         self.username = username
         self.date = date
         self.numcig = numcig
+        self.activity = activity
+        self.location = location
+        self.people = people
+        self.mood = mood
     }
 }
