@@ -37,14 +37,24 @@ class UserEntriesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
 
+    // Number of rows = number of entries
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return entries.count
+    }
+    
+    // Set up rows with data
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let entryCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        //entries[indexPath.row]
+        //let cellText = cell.textLabel?.text
+        entryCell.accessoryType = UITableViewCellAccessoryType.checkmark
+        entryCell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
+        return entryCell
     }
 
     /*
