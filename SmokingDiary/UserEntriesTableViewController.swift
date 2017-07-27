@@ -30,7 +30,7 @@ class UserEntriesTableViewController: UITableViewController {
             print(entries)
         }
         
-        tableView.allowsSelectionDuringEditing = true;
+       // tableView.allowsSelectionDuringEditing = true;
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,21 +43,24 @@ class UserEntriesTableViewController: UITableViewController {
         return entries.count
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        self.tableView.beginUpdates()
         if editingStyle == .delete {
-            let date = entries[indexPath.row].date
+            let id = entries[indexPath.row].uniqueId
             let networkManager = NetworkManager()
             //Username hardcoded
-            networkManager.deleteEntry(username: "Morgan", date: date) { (success, error) in
+            networkManager.deleteEntry(username: "Morgan", uniqueId: id) { (success, error) in
                 //
             }
             entries.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            print(entries.count)
         }
+        self.tableView.endUpdates()
     }
     
     // Set up rows with data

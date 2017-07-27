@@ -23,11 +23,11 @@ class NetworkManager {
     let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/this"
     let username = "Morgan"
     
-    func deleteEntry(username: String, date: String, completion:  @escaping (_ entries: [Entry], _ error: NetworkError?) -> Void) {
+    func deleteEntry(username: String, uniqueId: Int, completion:  @escaping (_ entries: [Entry], _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
             "method": "delete",
-            "date_delete": date
+            "uniqueId": uniqueId
             
         ]
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
@@ -61,10 +61,11 @@ class NetworkManager {
                         let activity = entry["activity"] as? [String],
                         let location = entry["location"] as? [String],
                         let people = entry["people"] as? [String],
-                        let mood = entry["mood"] as? [String] else {
+                        let mood = entry["mood"] as? [String],
+                        let uniqueId = entry["uniqueId"] as? Int else {
                         continue
                     }
-                    entryObjects.append(Entry(username: username, date: date, numcig: numcig, activity: activity, location: location, people: people, mood: mood))
+                    entryObjects.append(Entry(username: username, date: date, numcig: numcig, activity: activity, location: location, people: people, mood: mood, uniqueId: uniqueId))
                 }
 //                print(entryObjects)
                 completion(entryObjects)
