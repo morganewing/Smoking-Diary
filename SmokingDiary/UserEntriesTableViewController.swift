@@ -27,6 +27,7 @@ class UserEntriesTableViewController: UITableViewController {
         networkManager.listEntries(for: "Morgan")  { entries in
             self.entries = entries
             self.tableView.reloadData()
+            print(entries)
         }
     }
 

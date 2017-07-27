@@ -18,10 +18,25 @@ var editArray: NSArray! = []
 class NetworkManager {
 
     typealias JSON = [String: Any]
+   
 
     let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/this"
     let username = "Morgan"
+    
+    func deleteEntry(username: String, date: String, completion:  @escaping (_ entries: [Entry]) -> Void) {
+        let parameters: Parameters = [
+            "username": username,
+            "method": "delete",
+            "date_delete": date
+            
+        ]
+        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+            response in
+        }
 
+    }
+        
+        
     func listEntries(for username: String, completion: @escaping (_ entries: [Entry]) -> Void) {
         let parameters: Parameters = [
             "username": username,
@@ -42,12 +57,16 @@ class NetworkManager {
                 for entry in entries {
                     guard let username = entry["username"] as? String,
                         let date = entry["date"] as? String,
-                        let numcig = entry["numcig"] as? Int else {
+                        let numcig = entry["numcig"] as? Int,
+                        let activity = entry["activity"] as? [String],
+                        let location = entry["location"] as? [String],
+                        let people = entry["people"] as? [String],
+                        let mood = entry["mood"] as? [String] else {
                         continue
                     }
-                    entryObjects.append(Entry(username: username, date: date, numcig: numcig))
+                    entryObjects.append(Entry(username: username, date: date, numcig: numcig, activity: activity, location: location, people: people, mood: mood))
                 }
-                print(entryObjects)
+//                print(entryObjects)
                 completion(entryObjects)
             case .failure(_):
                 completion([])
