@@ -36,42 +36,42 @@ class NetworkManager {
 
     }
     
-    func getEntry(username: String, uniqueId: Int, completion: @escaping (_ entries: [Entry]) -> Void) {
-        let parameters: Parameters = [
-            "username": username,
-            "method": "get",
-            "uniqueId": uniqueId
-        ]
-        
-        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
-            response in
-            switch response.result {
-            case .success(let json):
-                
-                guard let _json = json as? JSON,
-                    let entry = _json["entry"] as? [JSON] else {
-                        completion([])
-                        return
-                }
-                var entryObjects: [Entry] = []
-                guard let username = entry["username"] as? String,
-                    let date = entry["date"] as? String,
-                    let numcig = entry["numcig"] as? Int,
-                    let activity = entry["activity"] as? [String],
-                    let location = entry["location"] as? [String],
-                    let people = entry["people"] as? [String],
-                    let mood = entry["mood"] as? [String],
-                    let uniqueId = entry["uniqueId"] as? Int else {
-                        return
-                }
-                entryObjects.append(Entry(username: username, date: date, numcig: numcig, activity: activity, location: location, people: people, mood: mood, uniqueId: uniqueId))
-                //                print(entryObjects)
-                completion(entryObjects)
-            case .failure(_):
-                completion([])
-            }
-        }
-    }
+//    func getEntry(username: String, uniqueId: Int, completion: @escaping (_ entries: [Entry]) -> Void) {
+//        let parameters: Parameters = [
+//            "username": username,
+//            "method": "get",
+//            "uniqueId": uniqueId
+//        ]
+//        
+//        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+//            response in
+//            switch response.result {
+//            case .success(let json):
+//                
+//                guard let _json = json as? JSON,
+//                    let entry = _json["entry"] as? [JSON] else {
+//                        completion([])
+//                        return
+//                }
+//                var entryObjects: [Entry] = []
+//                guard let username = entry["username"] as? String,
+//                    let date = entry["date"] as? String,
+//                    let numcig = entry["numcig"] as? Int,
+//                    let activity = entry["activity"] as? [String],
+//                    let location = entry["location"] as? [String],
+//                    let people = entry["people"] as? [String],
+//                    let mood = entry["mood"] as? [String],
+//                    let uniqueId = entry["uniqueId"] as? Int else {
+//                        return
+//                }
+//                entryObjects.append(Entry(username: username, date: date, numcig: numcig, activity: activity, location: location, people: people, mood: mood, uniqueId: uniqueId))
+//                //                print(entryObjects)
+//                completion(entryObjects)
+//            case .failure(_):
+//                completion([])
+//            }
+//        }
+//    }
         
     
     func listEntries(for username: String, completion: @escaping (_ entries: [Entry]) -> Void) {

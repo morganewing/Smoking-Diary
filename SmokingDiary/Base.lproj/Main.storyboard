@@ -12,7 +12,7 @@
         <!--Smoking Diary Entry-->
         <scene sceneID="pXs-Jf-fVs">
             <objects>
-                <tableViewController id="u7v-C8-KXm" customClass="ViewController" customModule="SmokingDiary" sceneMemberID="viewController">
+                <tableViewController title="Smoking Diary Entry" id="u7v-C8-KXm" customClass="ViewController" customModule="SmokingDiary" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="9uZ-fO-aE9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,7 +175,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Smoking Diary Entry" id="Xa1-fU-fYc">
-                        <barButtonItem key="leftBarButtonItem" title="EDIT" id="ryg-V6-6IZ" userLabel="EDIT">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cyG-Aw-gGF"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="ryg-V6-6IZ" userLabel="EDIT">
                             <connections>
                                 <segue destination="h3W-Jg-lGM" kind="show" id="xGH-b7-xY5"/>
                             </connections>
@@ -282,9 +283,10 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Activity" id="LrG-a6-HXt">
-                        <barButtonItem key="rightBarButtonItem" title="SAVE" id="ES8-Pv-qeB">
+                        <barButtonItem key="rightBarButtonItem" title="DONE" id="ES8-Pv-qeB">
                             <connections>
                                 <action selector="doneButton:" destination="NQp-tl-VWh" id="ae3-wN-tDy"/>
+                                <segue destination="u7v-C8-KXm" kind="show" id="gdc-qz-Gk1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -318,15 +320,7 @@
                             <outlet property="dataSource" destination="h3W-Jg-lGM" id="pg8-Hc-NPe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Entries" id="1Pp-Xr-D5F">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="TZP-jc-1mA">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vdi-pD-lcx">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Entry"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Entries" id="1Pp-Xr-D5F"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOF-Dw-IZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -423,7 +417,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Location" id="BuB-nc-b4h" userLabel="Add Location">
-                        <barButtonItem key="rightBarButtonItem" title="SAVE" id="ibG-qn-FD2">
+                        <barButtonItem key="rightBarButtonItem" title="DONE" id="ibG-qn-FD2">
                             <connections>
                                 <action selector="doneButtonLocation:" destination="I3C-iJ-qlO" id="TOR-P5-Vpg"/>
                             </connections>
@@ -456,7 +450,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add People" id="kSm-ca-DtX" userLabel="Add People">
-                        <barButtonItem key="rightBarButtonItem" title="SAVE" id="96u-7c-drX">
+                        <barButtonItem key="rightBarButtonItem" title="DONE" id="96u-7c-drX">
                             <connections>
                                 <action selector="doneButtonPeople:" destination="aBZ-kq-qZJ" id="3bZ-ap-w6l"/>
                             </connections>
@@ -489,7 +483,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Mood" id="mSD-PV-py3" userLabel="Add Mood">
-                        <barButtonItem key="rightBarButtonItem" title="SAVE" id="V1f-rd-rsD">
+                        <barButtonItem key="rightBarButtonItem" title="DONE" id="V1f-rd-rsD">
                             <connections>
                                 <action selector="doneButtonMood:" destination="FEZ-l1-dEF" id="uzE-RR-vfK"/>
                             </connections>
@@ -512,4 +506,7 @@
         <image name="People Disabled" width="72" height="63"/>
         <image name="Time Disabled" width="72" height="63"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gdc-qz-Gk1"/>
+    </inferredMetricsTieBreakers>
 </document>

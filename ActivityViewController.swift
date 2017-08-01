@@ -19,6 +19,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func doneButton(_ sender: Any) {
         if (updateActivity.count > 0) {
             currActivity = updateActivity
+            print(currActivity)
         }
     }
     
