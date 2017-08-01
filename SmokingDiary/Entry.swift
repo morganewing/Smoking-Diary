@@ -14,8 +14,9 @@ class Entry {
     let location: [String]
     let people: [String]
     let mood: [String]
+    let uniqueId: Int
     
-    init(username: String, date: String, numcig: Int, activity: [String], location: [String], people: [String], mood: [String]) {
+    init(username: String, date: String, numcig: Int, activity: [String], location: [String], people: [String], mood: [String], uniqueId: Int) {
         self.username = username
         self.date = date
         self.numcig = numcig
@@ -23,5 +24,6 @@ class Entry {
         self.location = location
         self.people = people
         self.mood = mood
+        self.uniqueId = uniqueId
     }
 }

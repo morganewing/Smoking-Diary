@@ -235,9 +235,6 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                            <connections>
-                                                <action selector="resignKeyboard:" destination="NQp-tl-VWh" eventType="editingDidEndOnExit" id="EGa-F0-Hh4"/>
-                                            </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhp-8V-Ge4">
                                             <rect key="frame" x="17" y="9" width="21" height="22"/>
@@ -313,6 +310,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -382,9 +380,6 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                            <connections>
-                                                <action selector="resignKeyboard:" destination="hAT-Na-I6d" eventType="editingDidEndOnExit" id="dwX-nn-5eA"/>
-                                            </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdH-4O-sY6">
                                             <rect key="frame" x="17" y="9" width="21" height="22"/>
@@ -397,9 +392,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="CustomActivityTableViewCell"/>
-                                <connections>
-                                    <outlet property="newActText" destination="9rr-Ii-Ite" id="atG-0E-IBV"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="custom" id="kfy-fd-tv4" userLabel="CustomLocationTableViewCell" customClass="CustomActivityTableViewCell" customModule="SmokingDiary" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
