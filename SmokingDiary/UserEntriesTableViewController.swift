@@ -68,7 +68,20 @@ class UserEntriesTableViewController: UITableViewController {
         let entryCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         let date = entries[indexPath.row].date
         entryCell.textLabel?.text = date
+        entryCell.accessoryType = UITableViewCellAccessoryType.checkmark
+        entryCell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Delete Activity"))
         return entryCell
+    }
+    
+    // Edit selected entry
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let uniqueId = entries[indexPath.row].uniqueId
+        let networkManager = NetworkManager()
+        networkManager.getEntry(username: "Morgan", uniqueId: uniqueId)  { entry in
+            //
+            self.entry = entry
+        }
+        print(entry.date)
     }
     
     // Delete selected entry
@@ -77,10 +90,10 @@ class UserEntriesTableViewController: UITableViewController {
 //        self.tableView.beginUpdates()
 //        let indexArray = [indexPath]
 //        self.tableView.deleteRows(at: indexArray, with: UITableViewRowAnimation.automatic)
-//        let date = entries[indexPath.row].date
+//        let uniqueId = entries[indexPath.row].uniqueId
 //        let networkManager = NetworkManager()
 //        //Username hardcoded
-//        networkManager.deleteEntry(username: "Morgan", date: date) { (success, error) in
+//        networkManager.deleteEntry(username: "Morgan", uniqueId: uniqueId) { (success, error) in
 //            //
 //        }
 //        entries.remove(at: indexPath.row)
