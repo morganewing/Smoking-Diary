@@ -95,7 +95,7 @@ class NetworkManager {
             
             //completion(false, NetworkError.BadConnection)
             
-            //print(response)
+            print(response)
         }
     }
 }
