@@ -43,6 +43,7 @@ class UserEntriesTableViewController: UITableViewController {
         return entries.count
     }
     
+
 //    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 //        return true
 //    }
@@ -62,17 +63,37 @@ class UserEntriesTableViewController: UITableViewController {
         }
         self.tableView.endUpdates()
     }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+
+    }
     
     // Set up rows with data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entryCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         let date = entries[indexPath.row].date
         entryCell.textLabel?.text = date
-        entryCell.accessoryType = UITableViewCellAccessoryType.checkmark
-        entryCell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Delete Activity"))
         return entryCell
     }
     
+
+    // Slide to delete entry
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if (editingStyle == .delete) {
+//            let id = entries[indexPath.row].uniqueId
+//            let networkManager = NetworkManager()
+//            //Username hardcoded
+//            networkManager.deleteEntry(username: "Morgan", uniqueId: id) { (success, error) in
+//                //
+//            }
+//            entries.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//            //print(entries.count)
+//        }
+//    }
+
+
     // Edit selected entry
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let uniqueId = entries[indexPath.row].uniqueId
@@ -83,6 +104,7 @@ class UserEntriesTableViewController: UITableViewController {
 //        }
 //        print(entry.date)
 //    }
+
 //    
     // Delete selected entry
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
