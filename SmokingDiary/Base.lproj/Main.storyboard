@@ -285,14 +285,17 @@
                     <navigationItem key="navigationItem" title="Add Activity" id="LrG-a6-HXt">
                         <barButtonItem key="rightBarButtonItem" title="DONE" id="ES8-Pv-qeB">
                             <connections>
-                                <action selector="doneButton:" destination="NQp-tl-VWh" id="ae3-wN-tDy"/>
-                                <segue destination="u7v-C8-KXm" kind="show" id="gdc-qz-Gk1"/>
+                                <action selector="doneButton:" destination="NQp-tl-VWh" id="OWs-GQ-3DB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="Dha-J8-mux" kind="unwind" identifier="activityReturn" unwindAction="unwindToViewControllerWithSegue:" id="nC6-Cc-zbm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQY-vR-D8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Dha-J8-mux" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1008.8" y="-231.63418290854574"/>
         </scene>
@@ -506,7 +509,4 @@
         <image name="People Disabled" width="72" height="63"/>
         <image name="Time Disabled" width="72" height="63"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="gdc-qz-Gk1"/>
-    </inferredMetricsTieBreakers>
 </document>

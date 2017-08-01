@@ -16,11 +16,21 @@ var new = 0
 class ActivityViewController: UITableViewController, UITextFieldDelegate {
     
     // Update activities when done button pressed
+//    @IBAction func doneButton(_ sender: Any) {
+//        if (updateActivity.count > 0) {
+//            currActivity = updateActivity
+//            print(currActivity)
+//        }
+//        self.performSegue(withIdentifier: "activityReturn", sender: self)
+//    }
+    
     @IBAction func doneButton(_ sender: Any) {
         if (updateActivity.count > 0) {
             currActivity = updateActivity
             print(currActivity)
         }
+        print("soo")
+        performSegue(withIdentifier: "activityReturn", sender: self)
     }
     
     // Default list of activities
