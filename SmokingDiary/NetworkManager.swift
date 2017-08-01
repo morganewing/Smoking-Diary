@@ -36,6 +36,48 @@ class NetworkManager {
 
     }
     
+
+    func getEntry(username: String, uniqueId: Int, completion: @escaping (_ entries: [Entry]) -> Void) {
+        let parameters: Parameters = [
+            "username": username,
+            "method": "get",
+            "uniqueId": uniqueId
+        ]
+        
+        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+            response in
+            switch response.result {
+            case .success(let json):
+                
+                guard let _json = json as? JSON,
+                    let entries = _json["entry"] as? [JSON] else {
+                        completion([])
+                        return
+                }
+                var entryObjects: [Entry] = []
+                for ent in entries {
+                    guard let username = ent["username"] as? String,
+                        let date = ent["date"] as? String,
+                        let numcig = ent["numcig"] as? Int,
+                        let activity = ent["activity"] as? [String],
+                        let location = ent["location"] as? [String],
+                        let people = ent["people"] as? [String],
+                        let mood = ent["mood"] as? [String],
+                        let uniqueId = ent["uniqueId"] as? Int else {
+                            continue
+                    }
+                    entryObjects.append(Entry(username: username, date: date, numcig: numcig, activity: activity, location: location, people: people, mood: mood, uniqueId: uniqueId))
+                }
+                //                print(entryObjects)
+                completion(entryObjects)
+            case .failure(_):
+                completion([])
+            }
+        }
+
+    }
+        
+
 //    func getEntry(username: String, uniqueId: Int, completion: @escaping (_ entries: [Entry]) -> Void) {
 //        let parameters: Parameters = [
 //            "username": username,
@@ -72,7 +114,7 @@ class NetworkManager {
 //            }
 //        }
 //    }
-        
+
     
     func listEntries(for username: String, completion: @escaping (_ entries: [Entry]) -> Void) {
         let parameters: Parameters = [

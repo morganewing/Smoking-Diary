@@ -43,8 +43,30 @@ class UserEntriesTableViewController: UITableViewController {
         return entries.count
     }
     
+
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        self.tableView.beginUpdates()
+        if editingStyle == .delete {
+            let id = entries[indexPath.row].uniqueId
+            let networkManager = NetworkManager()
+            //Username hardcoded
+            networkManager.deleteEntry(username: "Morgan", uniqueId: id) { (success, error) in
+                //
+            }
+            entries.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print(entries.count)
+        }
+        self.tableView.endUpdates()
+    }
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+
     }
     
     // Set up rows with data
@@ -55,21 +77,23 @@ class UserEntriesTableViewController: UITableViewController {
         return entryCell
     }
     
+
     // Slide to delete entry
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) {
-            let id = entries[indexPath.row].uniqueId
-            let networkManager = NetworkManager()
-            //Username hardcoded
-            networkManager.deleteEntry(username: "Morgan", uniqueId: id) { (success, error) in
-                //
-            }
-            entries.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            //print(entries.count)
-        }
-    }
-    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if (editingStyle == .delete) {
+//            let id = entries[indexPath.row].uniqueId
+//            let networkManager = NetworkManager()
+//            //Username hardcoded
+//            networkManager.deleteEntry(username: "Morgan", uniqueId: id) { (success, error) in
+//                //
+//            }
+//            entries.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//            //print(entries.count)
+//        }
+//    }
+
+
     // Edit selected entry
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let uniqueId = entries[indexPath.row].uniqueId
@@ -79,6 +103,23 @@ class UserEntriesTableViewController: UITableViewController {
 //            self.entry = entry
 //        }
 //        print(entry.date)
+//    }
+
+//    
+    // Delete selected entry
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        // Toggle selection circles
+//        self.tableView.beginUpdates()
+//        let indexArray = [indexPath]
+//        self.tableView.deleteRows(at: indexArray, with: UITableViewRowAnimation.automatic)
+//        let uniqueId = entries[indexPath.row].uniqueId
+//        let networkManager = NetworkManager()
+//        //Username hardcoded
+//        networkManager.deleteEntry(username: "Morgan", uniqueId: uniqueId) { (success, error) in
+//            //
+//        }
+//        entries.remove(at: indexPath.row)
+//        self.tableView.endUpdates()
 //    }
 
     /*
