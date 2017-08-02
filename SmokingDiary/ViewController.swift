@@ -98,12 +98,10 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                 networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, method: "add") { (success, error) in
                     //
                 }
-                print("not edit")
             } else {
                 networkManager.editEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, uniqueId: uniqueId, method: "edit") { (success, error) in
                     //
                 }
-                print("edit")
             }
         }
     }

@@ -82,12 +82,6 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        for i in 0...activities.count {
-//            print("u there")
-//            let actCell = tableView.cellForRow(at: IndexPath(row: i, section: 0))
-//            print(actCell)
-//            actCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
-//        }
     }
 
     

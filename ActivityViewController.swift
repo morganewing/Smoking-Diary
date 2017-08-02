@@ -21,9 +21,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             if currActivity.contains("Add activity") {
                 currActivity.remove(at: 0)
             }
-            print(currActivity)
         }
-        print("soo")
         performSegue(withIdentifier: "activityReturn", sender: self)
     }
     
@@ -48,7 +46,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     // Delete custom activity row when "Del" pressed
     @IBAction func deleteButton(_ sender: UIButton) {
         self.tableView.beginUpdates()
-        print((activities.count + new)-1)
         let newItemIndexPath = IndexPath(row: (activities.count + new)-1, section: 0)
         var index = new - 1
         let newActText = customAct[index]
@@ -82,9 +79,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
                 let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
                 added.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
                 if (customAct.count > 0 && (indexPath.row - activities.count) < customAct.count) {
-                    print(customAct[indexPath.row - activities.count])
-                    print(indexPath.row)
-                    print(activities.count)
                     added.textLabel?.text = customAct[indexPath.row - activities.count]
                     added.textLabel?.font = UIFont(name: "Halcom-Medium", size: 16)
                 }
@@ -103,7 +97,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         if (indexPath.row < (activities.count + new)) {
             let currCell = tableView.cellForRow(at: indexPath)
             let string = (currCell?.textLabel!.text)!
-            print(string)
             if (currCell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 // Remove activity from list

@@ -112,7 +112,6 @@ class UserEntriesTableViewController: UITableViewController {
         }
         edit = 1
         editInital = 1
-        print(edit)
         performSegue(withIdentifier: "editEntry", sender: nil)
     }
 }
