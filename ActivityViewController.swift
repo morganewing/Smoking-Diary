@@ -77,6 +77,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             // Added new activity row
             if (indexPath.row < (activities.count + new)) {
                 let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
+                added.accessoryType = UITableViewCellAccessoryType.checkmark
                 added.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
                 if (customAct.count > 0 && (indexPath.row - activities.count) < customAct.count) {
                     added.textLabel?.text = customAct[indexPath.row - activities.count]
@@ -94,18 +95,16 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
     // Add checkmarks and set currActivity to selected activity
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Toggle selection circles
-        if (indexPath.row < (activities.count + new)) {
+        //if (indexPath.row < (activities.count + new)) {
             let currCell = tableView.cellForRow(at: indexPath)
-            let string = (currCell?.textLabel!.text)!
             if (currCell?.accessoryType == UITableViewCellAccessoryType.checkmark) {
                 currCell?.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Disabled"))
                 // Remove activity from list
-                if (indexPath.row < activities.count) {
-                    if let itemToRemoveIndex = updateActivity.index(of: (currCell?.textLabel!.text)!) {
+                if let itemToRemoveIndex = updateActivity.index(of: (currCell?.textLabel!.text)!) {
                         updateActivity.remove(at: itemToRemoveIndex)
-                    }
-                } else {
-                    //remove custom activity!!!!
+                }
+                if let itemToRemoveIndex = customAct.index(of: (currCell?.textLabel!.text)!) {
+                    customAct.remove(at: itemToRemoveIndex)
                 }
             } else {
                 currCell?.accessoryType = UITableViewCellAccessoryType.checkmark
@@ -116,10 +115,11 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
                 } else {
                      if (indexPath.row < (activities.count + new)) {
                         updateActivity.append(customAct[indexPath.row-activities.count])
+                        print(customAct[indexPath.row-activities.count])
                     }
                 }
             }
-        }
+        //}
     }
 
     override func viewDidLoad() {
