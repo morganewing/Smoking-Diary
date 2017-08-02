@@ -38,6 +38,8 @@ class UserEntriesTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         entDate = ""
         entCigs = -1
         entActivity = [String]()
@@ -53,7 +55,7 @@ class UserEntriesTableViewController: UITableViewController {
         updatePeople = currPeople
         updateMood = currMood
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

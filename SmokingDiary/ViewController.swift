@@ -83,8 +83,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     // Save data when "SAVE" clicked
     @IBAction func saveButton(_ sender: Any) {
         // Check that number of cigs and activities have been selected
-        print(numCigs)
-        if (numCigs != -1) {
+        if (Int(self.cigText.text!) != -1) {
             numCigs = Int(self.cigText.text!)!
             dateTime = self.dateLabel.text!
             activityList = currActivity
@@ -153,7 +152,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     // Save num cigs entered
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if (cigText != nil) {
+        if (Int(cigText.text!) != -1) {
             cigText.text = textField.text
             numCigs = Int(cigText.text!)!
             // Change icon to enabled
