@@ -38,6 +38,7 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
         let cellPeople = tableView.dequeueReusableCell(withIdentifier: "cellPeople", for: indexPath)
         cellPeople.textLabel?.text = people[indexPath.row]
         let cellText = cellPeople.textLabel?.text
+        cellPeople.textLabel?.font = UIFont(name: "Halcom-Medium", size: 16)
         if (updatePeople.contains(cellText!)) {
             cellPeople.accessoryType = UITableViewCellAccessoryType.checkmark
             cellPeople.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))

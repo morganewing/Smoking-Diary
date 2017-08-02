@@ -78,6 +78,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         if (indexPath.row < activities.count) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = activities[indexPath.row]
+            cell.textLabel?.font = UIFont(name: "Halcom-Medium", size: 16)
             let cellText = cell.textLabel?.text
             if (updateActivity.contains(cellText!)) {
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark

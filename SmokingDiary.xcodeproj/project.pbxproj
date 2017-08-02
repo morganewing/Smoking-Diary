@@ -12,6 +12,7 @@
 		904A4F351F1E071E00E80249 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A4F341F1E071E00E80249 /* LocationViewController.swift */; };
 		904A4F371F1E105B00E80249 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A4F361F1E105B00E80249 /* PeopleViewController.swift */; };
 		904A4F391F1E165000E80249 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A4F381F1E165000E80249 /* MoodViewController.swift */; };
+		9080F9BB1F32034A009A38E0 /* Halcom-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9080F9BA1F32034A009A38E0 /* Halcom-Medium.otf */; };
 		9082D39B1EFBC43A008DC2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082D39A1EFBC43A008DC2EE /* AppDelegate.swift */; };
 		9082D39D1EFBC43A008DC2EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082D39C1EFBC43A008DC2EE /* ViewController.swift */; };
 		9082D3A01EFBC43A008DC2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9082D39E1EFBC43A008DC2EE /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		904A4F341F1E071E00E80249 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = SOURCE_ROOT; };
 		904A4F361F1E105B00E80249 /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = SOURCE_ROOT; };
 		904A4F381F1E165000E80249 /* MoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = SOURCE_ROOT; };
+		9080F9BA1F32034A009A38E0 /* Halcom-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Halcom-Medium.otf"; path = "../../../Downloads/Halcom/Halcom-Medium.otf"; sourceTree = "<group>"; };
 		9082D3971EFBC43A008DC2EE /* SmokingDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmokingDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9082D39A1EFBC43A008DC2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9082D39C1EFBC43A008DC2EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				9082D39E1EFBC43A008DC2EE /* Main.storyboard */,
 				90A5984A1F1F61BC00A40178 /* UserEntriesTableViewController.swift */,
 				9082D39C1EFBC43A008DC2EE /* ViewController.swift */,
+				9080F9BA1F32034A009A38E0 /* Halcom-Medium.otf */,
 				9093E0891F0286B500F5F979 /* ActivityViewController.swift */,
 				904A4F341F1E071E00E80249 /* LocationViewController.swift */,
 				904A4F361F1E105B00E80249 /* PeopleViewController.swift */,
@@ -281,6 +284,7 @@
 			files = (
 				9082D3A51EFBC43A008DC2EE /* LaunchScreen.storyboard in Resources */,
 				9082D3A21EFBC43A008DC2EE /* Assets.xcassets in Resources */,
+				9080F9BB1F32034A009A38E0 /* Halcom-Medium.otf in Resources */,
 				9082D3A01EFBC43A008DC2EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

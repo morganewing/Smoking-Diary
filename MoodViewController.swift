@@ -38,6 +38,7 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
         let cellMood = tableView.dequeueReusableCell(withIdentifier: "cellMood", for: indexPath)
         cellMood.textLabel?.text = moods[indexPath.row]
         let cellText = cellMood.textLabel?.text
+        cellMood.textLabel?.font = UIFont(name: "Halcom-Medium", size: 16)
         if (updateMood.contains(cellText!)) {
             cellMood.accessoryType = UITableViewCellAccessoryType.checkmark
             cellMood.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))

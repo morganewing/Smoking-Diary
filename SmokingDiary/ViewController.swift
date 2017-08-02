@@ -152,7 +152,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     // Save num cigs entered
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if (Int(cigText.text!) != -1) {
+        if (cigText.text != "Add number of cigarettes") {
             cigText.text = textField.text
             numCigs = Int(cigText.text!)!
             // Change icon to enabled

@@ -38,6 +38,7 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
         // Default activity row
         let cellLocation = tableView.dequeueReusableCell(withIdentifier: "cellLocation", for: indexPath)
         cellLocation.textLabel?.text = locations[indexPath.row]
+        cellLocation.textLabel?.font = UIFont(name: "Halcom-Medium", size: 16)
         let cellText = cellLocation.textLabel?.text
         if (updateLocation.contains(cellText!)) {
             cellLocation.accessoryType = UITableViewCellAccessoryType.checkmark

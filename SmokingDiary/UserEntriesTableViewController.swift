@@ -76,6 +76,7 @@ class UserEntriesTableViewController: UITableViewController {
         let entryCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         let date = entries[indexPath.row].date
         entryCell.textLabel?.text = date
+        entryCell.textLabel?.font = UIFont(name: "Halcom-Medium", size: 16)
         return entryCell
     }
     
