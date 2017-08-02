@@ -19,6 +19,9 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func doneButtonLocation(_ sender: Any) {
         if (updateLocation.count > 0) {
             currLocation = updateLocation
+            if currLocation.contains("Add location") {
+                currLocation.remove(at: 0)
+            }
         }
         print(currLocation)
     }

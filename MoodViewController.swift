@@ -19,6 +19,9 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func doneButtonMood(_ sender: Any) {
         if (updateMood.count > 0) {
             currMood = updateMood
+            if currMood.contains("Add mood") {
+                currMood.remove(at: 0)
+            }
         }
     }
     

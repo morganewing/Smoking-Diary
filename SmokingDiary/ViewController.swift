@@ -104,10 +104,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                 networkManager.editEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, uniqueId: uniqueId, method: "edit") { (success, error) in
                     //
                 }
-                currActivity = ["Add activity"]
-                currLocation = ["Add location"]
-                currPeople = ["Add people"]
-                currMood = ["Add mood"]
                 print("edit")
             }
         }

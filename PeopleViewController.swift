@@ -19,6 +19,9 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func doneButtonPeople(_ sender: Any) {
         if (updatePeople.count > 0) {
             currPeople = updatePeople
+            if currPeople.contains("Add people") {
+                currPeople.remove(at: 0)
+            }
         }
     }
     

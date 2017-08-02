@@ -44,6 +44,14 @@ class UserEntriesTableViewController: UITableViewController {
         entLocation = [String]()
         entPeople = [String]()
         entMood = [String]()
+        currActivity = ["Add activity"]
+        currLocation = ["Add location"]
+        currPeople = ["Add people"]
+        currMood = ["Add mood"]
+        updateActivity = currActivity
+        updateLocation = currLocation
+        updatePeople = currPeople
+        updateMood = currMood
     }
 
     override func didReceiveMemoryWarning() {
