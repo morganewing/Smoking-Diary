@@ -37,7 +37,7 @@ class NetworkManager {
     }
     
 
-    func getEntry(username: String, uniqueId: Int, completion: @escaping (_ entries: [Entry]) -> Void) {
+    func getEntry(username: String, uniqueId: Int, completion: @escaping (_ entry: [Entry]) -> Void) {
         let parameters: Parameters = [
             "username": username,
             "method": "get",
@@ -50,12 +50,12 @@ class NetworkManager {
             case .success(let json):
                 
                 guard let _json = json as? JSON,
-                    let entries = _json["entry"] as? [JSON] else {
+                    let entry = _json["entry"] as? [JSON] else {
                         completion([])
                         return
                 }
                 var entryObjects: [Entry] = []
-                for ent in entries {
+                for ent in entry {
                     guard let username = ent["username"] as? String,
                         let date = ent["date"] as? String,
                         let numcig = ent["numcig"] as? Int,
@@ -178,4 +178,31 @@ class NetworkManager {
             print(response)
         }
     }
+    
+    func editEntry(dateTime: String, numCigs: Int, activityList: [String], locationList: [String], peopleList: [String], moodList: [String], uniqueId: Int, method: String, completion: @escaping (_ entries: [Entry], _ error: NetworkError?) -> Void) {
+        let parameters: Parameters = [
+            "username": username,
+            "date": dateTime,
+            "numcig": numCigs,
+            "activity": activityList,
+            "location": locationList,
+            "people": peopleList,
+            "mood": moodList,
+            "uniqueId": uniqueId,
+            "method": "edit"
+            //add action
+        ]
+        
+        //post method
+        
+        Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+            response in
+            // check data
+            
+            //completion(false, NetworkError.BadConnection)
+            
+            print(response)
+        }
+    }
+
 }

@@ -19,6 +19,8 @@ var activityList = [String]()
 var locationList = [String]()
 var peopleList = [String]()
 var moodList = [String]()
+var edit = 0
+var uniqueId = -1
 // Selected items
 var updateActivity = [String]()
 var updateLocation = [String]()
@@ -90,10 +92,17 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             
             let networkManager = NetworkManager()
             
-            print("hey")
             
-            networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, method: "add") { (success, error) in
-                //
+            if (edit == 0) {
+                networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, method: "add") { (success, error) in
+                    //
+                }
+                print("not edit")
+            } else {
+                networkManager.editEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, uniqueId: uniqueId, method: "edit") { (success, error) in
+                    //
+                }
+                print("edit")
             }
         }
     }
@@ -161,33 +170,81 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     // Update activities
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (currActivity != ["Add activity"]) {
-            addActivity.setTitle(currActivity.joined(separator:", "), for: .normal)
+        if (entDate != "") {
+            edit = 1
+            dateLabel.text = entDate
+            cigText.text = String(entCigs)
+            addActivity.setTitle(entActivity.joined(separator:", "), for: .normal)
+            addLocation.setTitle(entLocation.joined(separator:", "), for: .normal)
+            addPeople.setTitle(entPeople.joined(separator:", "), for: .normal)
+            addMood.setTitle(entMood.joined(separator:", "), for: .normal)
+            
+            numCigs = entCigs
+            dateTime = dateLabel.text!
+            activityList = entActivity
+            locationList = entLocation
+            peopleList = entPeople
+            moodList = entMood
+            uniqueId = entId
+            
+            entDate = ""
+            entCigs = -1
+            entActivity = [String]()
+            entLocation = [String]()
+            entPeople = [String]()
+            entMood = [String]()
+            
+            
+            dateLabel.textColor = UIColor.black
+            self.view.endEditing(true)
+            // Change icon to enabled
+            dateIcon.image = #imageLiteral(resourceName: "Time Enabled")
+            // Change icon to enabled
+            cigIcon.image = #imageLiteral(resourceName: "Cigarettes Enabled")
             // Change icon to enabled
             activityIcon.image = #imageLiteral(resourceName: "Activity Enabled")
             // Change text color to black
             addActivity.setTitleColor(UIColor.black, for: .normal)
-        }
-        if (currLocation != ["Add location"]) {
-            addLocation.setTitle(currLocation.joined(separator:", "), for: .normal)
             // Change icon to enabled
             locationIcon.image = #imageLiteral(resourceName: "Location Enabled")
             // Change text color to black
             addLocation.setTitleColor(UIColor.black, for: .normal)
-        }
-        if (currPeople != ["Add people"]) {
-            addPeople.setTitle(currPeople.joined(separator:", "), for: .normal)
             // Change icon to enabled
             peopleIcon.image = #imageLiteral(resourceName: "People Enabled")
             // Change text color to black
             addPeople.setTitleColor(UIColor.black, for: .normal)
-        }
-        if (currMood != ["Add mood"]) {
-            addMood.setTitle(currMood.joined(separator:", "), for: .normal)
-            // Change icon to enabled
             moodIcon.image = #imageLiteral(resourceName: "Mood Enabled")
             // Change text color to black
             addMood.setTitleColor(UIColor.black, for: .normal)
+        } else {
+            if (currActivity != ["Add activity"]) {
+                addActivity.setTitle(currActivity.joined(separator:", "), for: .normal)
+                // Change icon to enabled
+                activityIcon.image = #imageLiteral(resourceName: "Activity Enabled")
+                // Change text color to black
+                addActivity.setTitleColor(UIColor.black, for: .normal)
+            }
+            if (currLocation != ["Add location"]) {
+                addLocation.setTitle(currLocation.joined(separator:", "), for: .normal)
+                // Change icon to enabled
+                locationIcon.image = #imageLiteral(resourceName: "Location Enabled")
+                // Change text color to black
+                addLocation.setTitleColor(UIColor.black, for: .normal)
+            }
+            if (currPeople != ["Add people"]) {
+                addPeople.setTitle(currPeople.joined(separator:", "), for: .normal)
+                // Change icon to enabled
+                peopleIcon.image = #imageLiteral(resourceName: "People Enabled")
+                // Change text color to black
+                addPeople.setTitleColor(UIColor.black, for: .normal)
+            }
+            if (currMood != ["Add mood"]) {
+                addMood.setTitle(currMood.joined(separator:", "), for: .normal)
+                // Change icon to enabled
+                moodIcon.image = #imageLiteral(resourceName: "Mood Enabled")
+                // Change text color to black
+                addMood.setTitleColor(UIColor.black, for: .normal)
+            }
         }
     }
     
@@ -230,7 +287,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
-        print("litty")
     }
     
 }

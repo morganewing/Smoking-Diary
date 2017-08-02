@@ -323,11 +323,20 @@
                             <outlet property="dataSource" destination="h3W-Jg-lGM" id="pg8-Hc-NPe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Entries" id="1Pp-Xr-D5F"/>
+                    <navigationItem key="navigationItem" title="My Entries" id="1Pp-Xr-D5F">
+                        <barButtonItem key="rightBarButtonItem" title="ADD" id="svF-0h-6pK">
+                            <connections>
+                                <segue destination="u7v-C8-KXm" kind="show" id="CYK-FK-fQ3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="u7v-C8-KXm" kind="show" identifier="editEntry" id="NSX-Kv-otv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOF-Dw-IZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-610" y="-564"/>
+            <point key="canvasLocation" x="-633" y="-437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m07-FU-DGc">
@@ -509,4 +518,7 @@
         <image name="People Disabled" width="72" height="63"/>
         <image name="Time Disabled" width="72" height="63"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NSX-Kv-otv"/>
+    </inferredMetricsTieBreakers>
 </document>
