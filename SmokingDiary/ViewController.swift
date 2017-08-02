@@ -183,10 +183,17 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                 addPeople.setTitle(currPeople.joined(separator:", "), for: .normal)
                 addMood.setTitle(currMood.joined(separator:", "), for: .normal)
             } else {
+                numCigs = entCigs
+                dateTime = dateLabel.text!
                 currActivity = entActivity
                 currLocation = entLocation
                 currPeople = entPeople
                 currMood = entMood
+                uniqueId = entId
+                updateActivity = currActivity
+                updateLocation = currLocation
+                updatePeople = currPeople
+                updateMood = currMood
                 
                 dateLabel.text = entDate
                 cigText.text = String(entCigs)
@@ -194,14 +201,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                 addLocation.setTitle(entLocation.joined(separator:", "), for: .normal)
                 addPeople.setTitle(entPeople.joined(separator:", "), for: .normal)
                 addMood.setTitle(entMood.joined(separator:", "), for: .normal)
-                
-                numCigs = entCigs
-                dateTime = dateLabel.text!
-                activityList = entActivity
-                locationList = entLocation
-                peopleList = entPeople
-                moodList = entMood
-                uniqueId = entId
                 
                 dateLabel.textColor = UIColor.black
                 self.view.endEditing(true)
