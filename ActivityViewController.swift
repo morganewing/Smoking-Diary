@@ -62,17 +62,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
         self.tableView.endUpdates()
     }
     
-    
-    
-//    @IBOutlet var activityText: UITextField!
-    
-//    // Hide keyboard when "Done" preseed and save new activity to array
-//    @IBAction func resignKeyboard(_ sender: AnyObject) {
-//        customAct.append(activityText.text!)
-//        updateActivity.append(activityText.text!)
-//        sender.resignFirstResponder()
-//    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Default activity row
         if (indexPath.row < activities.count) {
@@ -92,10 +81,12 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
             if (indexPath.row < (activities.count + new)) {
                 let added = tableView.dequeueReusableCell(withIdentifier: "added", for: indexPath)
                 added.accessoryView = UIImageView(image: #imageLiteral(resourceName: "Selection circle Enabled"))
-                if (customAct.count > 0) {
+                if (customAct.count > 0 && (indexPath.row - activities.count) < customAct.count) {
+                    print(customAct[indexPath.row - activities.count])
                     print(indexPath.row)
                     print(activities.count)
                     added.textLabel?.text = customAct[indexPath.row - activities.count]
+                    added.textLabel?.font = UIFont(name: "Halcom-Medium", size: 16)
                 }
                 return added
             // Add activity option row
@@ -140,6 +131,7 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //activityText.delegate = self
 
         // Do any additional setup after loading the view.
     }
