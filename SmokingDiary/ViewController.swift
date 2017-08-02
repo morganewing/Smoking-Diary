@@ -20,6 +20,7 @@ var locationList = [String]()
 var peopleList = [String]()
 var moodList = [String]()
 var edit = 0
+var editInital = 1
 var uniqueId = -1
 // Selected items
 var updateActivity = [String]()
@@ -82,7 +83,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     // Save data when "SAVE" clicked
     @IBAction func saveButton(_ sender: Any) {
         // Check that number of cigs and activities have been selected
-        if (numCigs != -1 && currActivity != ["Add activity"]) {
+        print(numCigs)
+        if (numCigs != -1) {
             numCigs = Int(self.cigText.text!)!
             dateTime = self.dateLabel.text!
             activityList = currActivity
@@ -102,6 +104,10 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                 networkManager.editEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, uniqueId: uniqueId, method: "edit") { (success, error) in
                     //
                 }
+                currActivity = ["Add activity"]
+                currLocation = ["Add location"]
+                currPeople = ["Add people"]
+                currMood = ["Add mood"]
                 print("edit")
             }
         }
@@ -170,53 +176,58 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     // Update activities
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (entDate != "") {
-            edit = 1
-            dateLabel.text = entDate
-            cigText.text = String(entCigs)
-            addActivity.setTitle(entActivity.joined(separator:", "), for: .normal)
-            addLocation.setTitle(entLocation.joined(separator:", "), for: .normal)
-            addPeople.setTitle(entPeople.joined(separator:", "), for: .normal)
-            addMood.setTitle(entMood.joined(separator:", "), for: .normal)
-            
-            numCigs = entCigs
-            dateTime = dateLabel.text!
-            activityList = entActivity
-            locationList = entLocation
-            peopleList = entPeople
-            moodList = entMood
-            uniqueId = entId
-            
-            entDate = ""
-            entCigs = -1
-            entActivity = [String]()
-            entLocation = [String]()
-            entPeople = [String]()
-            entMood = [String]()
-            
-            
-            dateLabel.textColor = UIColor.black
-            self.view.endEditing(true)
-            // Change icon to enabled
-            dateIcon.image = #imageLiteral(resourceName: "Time Enabled")
-            // Change icon to enabled
-            cigIcon.image = #imageLiteral(resourceName: "Cigarettes Enabled")
-            // Change icon to enabled
-            activityIcon.image = #imageLiteral(resourceName: "Activity Enabled")
-            // Change text color to black
-            addActivity.setTitleColor(UIColor.black, for: .normal)
-            // Change icon to enabled
-            locationIcon.image = #imageLiteral(resourceName: "Location Enabled")
-            // Change text color to black
-            addLocation.setTitleColor(UIColor.black, for: .normal)
-            // Change icon to enabled
-            peopleIcon.image = #imageLiteral(resourceName: "People Enabled")
-            // Change text color to black
-            addPeople.setTitleColor(UIColor.black, for: .normal)
-            moodIcon.image = #imageLiteral(resourceName: "Mood Enabled")
-            // Change text color to black
-            addMood.setTitleColor(UIColor.black, for: .normal)
+        if (edit == 1) {
+            if (editInital == 0) {
+                addActivity.setTitle(currActivity.joined(separator:", "), for: .normal)
+                addLocation.setTitle(currLocation.joined(separator:", "), for: .normal)
+                addPeople.setTitle(currPeople.joined(separator:", "), for: .normal)
+                addMood.setTitle(currMood.joined(separator:", "), for: .normal)
+            } else {
+                currActivity = entActivity
+                currLocation = entLocation
+                currPeople = entPeople
+                currMood = entMood
+                
+                dateLabel.text = entDate
+                cigText.text = String(entCigs)
+                addActivity.setTitle(entActivity.joined(separator:", "), for: .normal)
+                addLocation.setTitle(entLocation.joined(separator:", "), for: .normal)
+                addPeople.setTitle(entPeople.joined(separator:", "), for: .normal)
+                addMood.setTitle(entMood.joined(separator:", "), for: .normal)
+                
+                numCigs = entCigs
+                dateTime = dateLabel.text!
+                activityList = entActivity
+                locationList = entLocation
+                peopleList = entPeople
+                moodList = entMood
+                uniqueId = entId
+                
+                dateLabel.textColor = UIColor.black
+                self.view.endEditing(true)
+                // Change icon to enabled
+                dateIcon.image = #imageLiteral(resourceName: "Time Enabled")
+                // Change icon to enabled
+                cigIcon.image = #imageLiteral(resourceName: "Cigarettes Enabled")
+                // Change icon to enabled
+                activityIcon.image = #imageLiteral(resourceName: "Activity Enabled")
+                // Change text color to black
+                addActivity.setTitleColor(UIColor.black, for: .normal)
+                // Change icon to enabled
+                locationIcon.image = #imageLiteral(resourceName: "Location Enabled")
+                // Change text color to black
+                addLocation.setTitleColor(UIColor.black, for: .normal)
+                // Change icon to enabled
+                peopleIcon.image = #imageLiteral(resourceName: "People Enabled")
+                // Change text color to black
+                addPeople.setTitleColor(UIColor.black, for: .normal)
+                moodIcon.image = #imageLiteral(resourceName: "Mood Enabled")
+                // Change text color to black
+                addMood.setTitleColor(UIColor.black, for: .normal)
+            }
+            editInital = 0
         } else {
+            //edit = 0
             if (currActivity != ["Add activity"]) {
                 addActivity.setTitle(currActivity.joined(separator:", "), for: .normal)
                 // Change icon to enabled

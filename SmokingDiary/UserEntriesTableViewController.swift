@@ -34,8 +34,16 @@ class UserEntriesTableViewController: UITableViewController {
         //username hardcoded
         networkManager.listEntries(for: "Morgan")  { entries in
             self.entries = entries
+            edit = 0
             self.tableView.reloadData()
         }
+        
+        entDate = ""
+        entCigs = -1
+        entActivity = [String]()
+        entLocation = [String]()
+        entPeople = [String]()
+        entMood = [String]()
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +99,9 @@ class UserEntriesTableViewController: UITableViewController {
             entMood = getEntry[0].mood
             entId = getEntry[0].uniqueId
         }
+        edit = 1
+        editInital = 1
+        print(edit)
         performSegue(withIdentifier: "editEntry", sender: nil)
     }
 }
