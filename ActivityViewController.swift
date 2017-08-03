@@ -115,7 +115,6 @@ class ActivityViewController: UITableViewController, UITextFieldDelegate {
                 } else {
                      if (indexPath.row < (activities.count + new)) {
                         updateActivity.append(customAct[indexPath.row-activities.count])
-                        print(customAct[indexPath.row-activities.count])
                     }
                 }
             }

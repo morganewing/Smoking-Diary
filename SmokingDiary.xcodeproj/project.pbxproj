@@ -174,12 +174,12 @@
 				9093E06F1EFBCD9900F5F979 /* EntryTableViewCell.swift */,
 				9093E0711EFBFFB300F5F979 /* NumCigsTableViewCell.swift */,
 				9093E0791F025B4500F5F979 /* ActivityTableViewCell.swift */,
+				51B1E8321F14D7A3003B3DFB /* NetworkManager.swift */,
+				9082D39A1EFBC43A008DC2EE /* AppDelegate.swift */,
 				9080F9BA1F32034A009A38E0 /* Halcom-Medium.otf */,
 				9082D3A11EFBC43A008DC2EE /* Assets.xcassets */,
 				9082D3A31EFBC43A008DC2EE /* LaunchScreen.storyboard */,
 				9082D3A61EFBC43A008DC2EE /* Info.plist */,
-				51B1E8321F14D7A3003B3DFB /* NetworkManager.swift */,
-				9082D39A1EFBC43A008DC2EE /* AppDelegate.swift */,
 			);
 			path = SmokingDiary;
 			sourceTree = "<group>";

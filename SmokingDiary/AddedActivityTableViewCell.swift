@@ -28,7 +28,6 @@ class AddedActivityTableViewCell: UITableViewCell, UITextFieldDelegate {
         activityText.resignFirstResponder()
         customAct.append(activityText.text!)
         updateActivity.append(activityText.text!)
-        print(updateActivity[0])
         return true
     }
 }
