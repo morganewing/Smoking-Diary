@@ -20,7 +20,7 @@ class NetworkManager {
     typealias JSON = [String: Any]
    
 
-    let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/this"
+    let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/SmokingDiary"
     let username = "Morgan"
     
     func deleteEntry(username: String, uniqueId: Int, completion:  @escaping (_ entries: [Entry], _ error: NetworkError?) -> Void) {
