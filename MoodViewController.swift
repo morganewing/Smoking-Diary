@@ -23,6 +23,7 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
                 currMood.remove(at: 0)
             }
         }
+        performSegue(withIdentifier: "moodSegue", sender: self)
     }
     
     // Default list of activities

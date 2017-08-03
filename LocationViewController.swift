@@ -23,6 +23,7 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
                 currLocation.remove(at: 0)
             }
         }
+        performSegue(withIdentifier: "locationSegue", sender: self)
     }
     
     // Default list of activities

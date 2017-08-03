@@ -23,6 +23,7 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
                 currPeople.remove(at: 0)
             }
         }
+        performSegue(withIdentifier: "peopleSegue", sender: self)
     }
     
     // Default list of activities

@@ -443,8 +443,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="yKd-wU-JqT" kind="unwind" identifier="locationSegue" unwindAction="unwindToViewControllerWithSegue:" id="iKl-ob-Mop"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLt-9a-yjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yKd-wU-JqT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1629.5999999999999" y="411.544227886057"/>
         </scene>
@@ -476,8 +480,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="9lG-q3-sFW" kind="unwind" identifier="peopleSegue" unwindAction="unwindToViewControllerWithSegue:" id="ZZl-tL-WxD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3U-d1-W42" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9lG-q3-sFW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="884" y="771"/>
         </scene>
@@ -509,8 +517,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="QBg-QC-bf8" kind="unwind" identifier="moodSegue" unwindAction="unwindToViewControllerWithSegue:" id="k55-t3-pFp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONI-B8-GiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QBg-QC-bf8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="153" y="1051"/>
         </scene>
