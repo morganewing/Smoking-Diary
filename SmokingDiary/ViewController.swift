@@ -22,17 +22,16 @@ var moodList = [String]()
 var edit = 0
 var editInital = 1
 var uniqueId = -1
-// Selected items
+// Selected item variables
 var updateActivity = [String]()
 var updateLocation = [String]()
 var updatePeople = [String]()
 var updateMood = [String]()
-
 var meth = ""
 
 class ViewController: UITableViewController, UITextFieldDelegate {
-
-//    @IBOutlet var dateTime: UILabel!
+    
+    // Default icons, buttons, and text fields
     @IBOutlet var cigText: UITextField!
     @IBOutlet var dateLabel: UITextField!
     let datePicker = UIDatePicker()
@@ -93,7 +92,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             
             let networkManager = NetworkManager()
             
-            
             if (edit == 0) {
                 networkManager.saveEntry(dateTime: dateTime, numCigs: numCigs, activityList: activityList, locationList: locationList, peopleList: peopleList, moodList: moodList, method: "add") { (success, error) in
                     //
@@ -123,7 +121,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         let timeString = "\(hour):\(minutes)"
         dateLabel.text = dateString + " at " + timeString
         
-        
         // Set addActivity to selected activity
         addActivity.setTitle("Add activity", for: .normal)
         
@@ -143,7 +140,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     // Text fields return on "return"
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard.
+        // Hide the keyboard
         textField.resignFirstResponder()
         return true
     }
@@ -195,6 +192,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                 addPeople.setTitle(entPeople.joined(separator:", "), for: .normal)
                 addMood.setTitle(entMood.joined(separator:", "), for: .normal)
                 
+                // Change text color to black
                 dateLabel.textColor = UIColor.black
                 self.view.endEditing(true)
                 // Change icon to enabled
@@ -219,7 +217,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             }
             editInital = 0
         } else {
-            //edit = 0
+            // If edit = 0 (entry not edited)
             if (currActivity != ["Add activity"]) {
                 addActivity.setTitle(currActivity.joined(separator:", "), for: .normal)
                 // Change icon to enabled
@@ -253,7 +251,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // Tap anywhere to exit keyboard

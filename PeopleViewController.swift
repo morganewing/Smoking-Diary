@@ -9,6 +9,7 @@
 import UIKit
 import os.log
 
+// Global variables
 var customPeople = [String]()
 // Number of custom activities
 var newPeople = 0
@@ -29,11 +30,12 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
     // Default list of activities
     var people = ["Friends", "Family", "Colleagues"]
     
-    
+    // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (people.count + newPeople)
     }
     
+    // Set table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Default activity row
         let cellPeople = tableView.dequeueReusableCell(withIdentifier: "cellPeople", for: indexPath)
@@ -62,7 +64,7 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
                         updatePeople.remove(at: itemToRemoveIndex)
                     }
                 } else {
-                    //remove custom activity!!!!
+                    // Remove custom activity
                 }
             } else {
                 currCell?.accessoryType = UITableViewCellAccessoryType.checkmark
@@ -81,25 +83,11 @@ class PeopleViewController: UITableViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

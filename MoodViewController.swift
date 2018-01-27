@@ -9,6 +9,7 @@
 import UIKit
 import os.log
 
+// Global variables
 var customMood = [String]()
 // Number of custom activities
 var newMood = 0
@@ -29,11 +30,12 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
     // Default list of activities
     var moods = ["Happy", "Sad", "Angry", "Stressed"]
     
-    
+    // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (moods.count + newMood)
     }
     
+    // Set table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Default activity row
         let cellMood = tableView.dequeueReusableCell(withIdentifier: "cellMood", for: indexPath)
@@ -62,7 +64,7 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
                         updateMood.remove(at: itemToRemoveIndex)
                     }
                 } else {
-                    //remove custom activity!!!!
+                    // Remove custom activity
                 }
             } else {
                 currCell?.accessoryType = UITableViewCellAccessoryType.checkmark
@@ -81,25 +83,11 @@ class MoodViewController: UITableViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -2,10 +2,11 @@
 //  Entry.swift
 //  SmokingDiary
 //
-//  Created by Lucas Gordon on 26/07/2017.
+//  Created by Morgan Ewing on 26/07/2017.
 //  Copyright © 2017 Morgan Ewing. All rights reserved.
 //
 
+// Class for smoking diary entry
 class Entry {
     let username: String
     let date: String

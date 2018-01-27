@@ -9,6 +9,7 @@
 import UIKit
 import os.log
 
+// Global variables
 var customLocation = [String]()
 // Number of custom activities
 var newLocation = 0
@@ -29,11 +30,12 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
     // Default list of activities
     var locations = ["Home", "Work", "Restaurant", "Pub", "Cinema"]
     
-    
+    // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (locations.count + newLocation)
     }
     
+    // Set table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Default activity row
         let cellLocation = tableView.dequeueReusableCell(withIdentifier: "cellLocation", for: indexPath)
@@ -62,7 +64,7 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
                         updateLocation.remove(at: itemToRemoveIndex)
                     }
                 } else {
-                    //remove custom activity!!!!
+                    // Remove custom activity
                 }
             } else {
                 currCell?.accessoryType = UITableViewCellAccessoryType.checkmark
@@ -86,18 +88,6 @@ class LocationViewController: UITableViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

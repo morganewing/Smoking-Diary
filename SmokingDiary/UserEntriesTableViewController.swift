@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Global entry variables
 var entDate = ""
 var entCigs = -1
 var entActivity = [String]()
@@ -22,16 +23,10 @@ class UserEntriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         let networkManager = NetworkManager()
         
-        //username hardcoded
+        // Temporary username
         networkManager.listEntries(for: "Morgan")  { entries in
             self.entries = entries
             edit = 0
@@ -40,6 +35,7 @@ class UserEntriesTableViewController: UITableViewController {
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         
+        // Entry variables
         entDate = ""
         entCigs = -1
         entActivity = [String]()
@@ -65,10 +61,10 @@ class UserEntriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }
-
+    
+    // Allow row editing
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
-
     }
     
     // Set up rows with data
@@ -79,14 +75,13 @@ class UserEntriesTableViewController: UITableViewController {
         entryCell.textLabel?.font = UIFont(name: "Halcom-Medium", size: 16)
         return entryCell
     }
-    
 
     // Slide to delete entry
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             let id = entries[indexPath.row].uniqueId
             let networkManager = NetworkManager()
-            //Username hardcoded
+            // Temporary username
             networkManager.deleteEntry(username: "Morgan", uniqueId: id) { (success, error) in
                 //
             }
@@ -94,7 +89,6 @@ class UserEntriesTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
 
     // Edit selected entry, perform segue to view controller
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

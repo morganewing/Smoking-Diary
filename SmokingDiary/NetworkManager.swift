@@ -2,7 +2,7 @@
 //  NetworkManager.swift
 //  SmokingDiary
 //
-//  Created by Lucas Gordon on 11/07/2017.
+//  Created by Morgan Ewing on 11/07/2017.
 //  Copyright © 2017 Morgan Ewing. All rights reserved.
 //
 
@@ -15,10 +15,10 @@ enum NetworkError {
 
 var editArray: NSArray! = []
 
+// Network manager class
 class NetworkManager {
 
     typealias JSON = [String: Any]
-   
 
     let API_URL = "https://wt-96a40030c5d2a13282018030d32db7a4-0.run.webtask.io/SmokingDiary"
     let username = "Morgan"
@@ -36,7 +36,7 @@ class NetworkManager {
 
     }
     
-
+    // Get an entry
     func getEntry(username: String, uniqueId: Int, completion: @escaping (_ entry: [Entry]) -> Void) {
         let parameters: Parameters = [
             "username": username,
@@ -76,6 +76,7 @@ class NetworkManager {
 
     }
     
+    // Return list of entries
     func listEntries(for username: String, completion: @escaping (_ entries: [Entry]) -> Void) {
         let parameters: Parameters = [
             "username": username,
@@ -113,6 +114,7 @@ class NetworkManager {
         }
     }
 
+    // Save an entry
     func saveEntry(dateTime: String, numCigs: Int, activityList: [String], locationList: [String], peopleList: [String], moodList: [String], method: String, completion: @escaping (_ entries: [Entry], _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
@@ -125,16 +127,16 @@ class NetworkManager {
             "method": "add"
         ]
         
-        //post method
-    
+        // Post method
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
-            // check data
+            // Check data
             
             print(response)
         }
     }
     
+    // Edit an entry
     func editEntry(dateTime: String, numCigs: Int, activityList: [String], locationList: [String], peopleList: [String], moodList: [String], uniqueId: Int, method: String, completion: @escaping (_ entries: [Entry], _ error: NetworkError?) -> Void) {
         let parameters: Parameters = [
             "username": username,
@@ -150,7 +152,7 @@ class NetworkManager {
         
         Alamofire.request(API_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
             response in
-            // check data
+            // Check data
             
             print(response)
         }
